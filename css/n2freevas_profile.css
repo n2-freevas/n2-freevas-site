@@ -1,0 +1,199 @@
+@charset    "UTF-8";
+:root{
+    --main-color: #b40000;
+    --white: #FEFEFE;
+    --accent-color: #FBC02D;
+    --dark-main-color: #000000;
+    --gray-color: #f0f0f0;
+
+    --large-width: 1000px;
+}
+html, body, h1, h2, h3, h4, h5, h6, p, div, ul, ol, li, dl, dt, dd, table, caption, th, td, form, button, label, address, blockquote, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-weight: normal;
+}
+body{
+    font-size: 14px;
+    font-family: Helvetica, '游ゴシック', 'Yu Gothic', YuGothic, HiraKakuProN-W3, 'メイリオ', Meiryo, sans-serif;
+    color: var(--white);
+    background-color: var(--white);
+    text-align: left;
+    line-height: 1.9;
+    -webkit-text-size-adjust: 100%;
+}
+
+.SNSicons{
+    text-align: right;
+    margin-left:75%;
+    position:fixed;
+}
+.SNSicons ul{
+    padding-top: 10%;
+    list-style: none;
+}
+.SNSicons li{
+    margin-right: 15px;
+    padding-bottom: 15%;
+}
+.SNSicons img{
+    width: 30%;
+}
+
+.main{
+    margin: 3% 12% 3% 3%;
+    background-color: black;
+}
+.contBox {
+        margin: 0 40px;
+}
+
+.cf{
+    zoom:1;
+}
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+.cf:after{
+    clear:both;
+}
+.red{
+    color:var(--main-color)
+}
+.main h2.ttl{
+    padding-top:40px;
+    text-align: center;
+    line-height:1.0;
+    font-weight: 100;
+    font-size: 40px;
+    letter-spacing: 0.05em;
+}
+.main.inner.h2.ttl{
+    margin-bottom: 25px;
+}
+.main h2.ttl.large{
+    font-family: "HiraMinProN-W3";
+    margin: 0 0 35px 0;
+    font-size: 46px;
+    font-weight: bold;
+	text-align: left;
+}
+
+.imgFace img{
+    width:210px;
+    height: 270px;
+}
+.imgFace img.logo1{
+    padding-left:20px;
+    width:170px;
+    height:170px;
+}
+.imgFace img.logo2{
+    padding-left:40px;
+    margin-bottom: 20px;
+    width:170px;
+    height:230px;
+}
+.fBox01 {
+    margin-bottom: 30px;
+    border-bottom: solid 1px currentColor;
+}
+.fBox01 p.mini{
+    font-size:12px;
+    margin-left:24px;
+}
+.Prof{
+    margin-bottom:30px;
+    font-size: 12px;
+}
+
+.txtBox{
+    margin-bottom:30px;
+}
+.toTop{
+    margin-top: 20px;
+    text-align: center;
+}
+.toTop a{
+    display:block;
+    margin-bottom:40px;
+    padding:8px 20px;
+}
+.toTop img{
+    width: 50px;
+}
+footer{
+    background: black;
+}
+
+.effect-fade {
+    opacity : 0;
+    transform : translate(0, 45px);
+    transition : all 1s;
+}
+    
+.effect-fade.effect-scroll {
+    opacity : 1;
+    transform : translate(0, 0);
+}
+
+@media (min-width: 768px){
+    
+    .SNSicons{
+        margin-left: 80%;
+    }
+    .SNSicons img{
+        width: 25%;
+    }
+    
+    .main.inner{
+        max-width: 960px;
+        padding: 0;
+        margin: 3% 3% 3% 10% auto;
+    }
+    .fBox01{
+        width:100%;
+    }
+    .fBox01 .fBoxLeft{
+        float: left;
+        width: 20%;
+        text-align: left;
+    }
+    .fBox01 .fBoxRight{
+        float: right;
+        width:60%;
+    }
+    .Prof{
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+    
+}
+@media only screen and (min-width: 961px){
+    .main.inner{
+        max-width: 960px;
+        padding: 0;
+        margin: 3% 12% 3% 3%;
+    }
+    .SNSicons{
+        margin-left: 85%;
+        margin-top: 15px;
+    }
+    .SNSicons img{
+        width: 30%;
+    }
+    
+    .fBox01 .fBoxLeft{
+        float: left;
+        
+        text-align:left;
+    }
+    .fBox01 .fBoxRight{
+        float: right;
+        
+    }
+}

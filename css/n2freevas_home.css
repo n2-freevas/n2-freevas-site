@@ -1,0 +1,268 @@
+@charset    "UTF-8";
+
+:root{
+    --main-color: #b40000;
+    --white: #FEFEFE;
+    --accent-color: #FBC02D;
+    --dark-main-color: #000000;
+    --gray-color: #f0f0f0;
+
+    --large-width: 1200px;
+}
+h1,h2,h3,h4,h5,h6,p,a,img,ul{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 120%;
+}
+body{
+    font-family: Helvetica, Arial, serif;
+    color: var(--white);
+    margin: 0;
+    background-color: var(--main-color);
+    background-position: center;
+    background-size: cover;
+}
+
+/*==========================*/
+.red{
+    color:var(--main-color);
+}
+.secA {
+    margin: 0;
+    display: block;
+    background-image: url(../img/home/top.png);
+    background-position: center;
+    background-size: cover;
+}
+.conA1{
+    text-align: right;
+}
+.conA1 ul{
+    padding-top: 5%;
+    list-style: none;
+}
+.conA1 li{
+    padding: 1rem;
+}
+.conA1 img{
+    width: 7%;
+}
+.conA2{
+    margin-bottom: auto;
+}
+.conA2 img{
+    margin: 5%;
+    width: 30%
+}
+
+
+.secB{
+    margin: 0;
+    text-align: center;
+    background-color: var(--dark-main-color); 
+}
+
+.conB1 img{
+    margin-top:1%;
+    margin-bottom:3%;
+    margin-right: 5%;
+    width: 50%;
+    height: 5%;
+    max-width: 300px;
+
+}
+.conB2 img{
+    display: inline-block;
+    margin: 2%;
+    width: 7em;
+}
+.conB2 .text{
+    
+    font-size: 0.7rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 40px;
+    
+}
+
+.conB2 h2{
+    padding-top: 10px;
+    font-size: 1.2rem;
+}
+.conB2 p{
+    padding-top: 15px;
+}
+
+.secC{
+    opacity: 0;
+    margin: 2% 2% 0 4%;
+    color: var(--dark-main-color);
+    background-color: var(--gray-color);
+}
+
+.secC .photo{
+    min-height: 150px;
+    background-image: url(../img/home/profile.png);
+    background-position: center;
+    background-size: cover;
+}
+.secC .text{
+    padding: 2% 0 0 4%;
+}
+.secC h2 {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-size: 1.5rem;
+}
+.secC p {
+    margin-top: 0;
+    margin-bottom: 1%;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+.secC .con .text img{
+    padding: 3% 3% 3% 0;
+    text-align: right;
+    width: 200px;
+    height: 40px;
+}
+
+.secD {
+    margin: 2% 4% 0 2%;
+    color: var(--gray-color);
+    background-color: var(--dark-main-color);
+}
+.secD .photo{
+    min-height: 150px;
+    background-image: url(../img/home/portfolio.png);
+    background-position: center;
+    background-size: cover;
+}
+.secD .text{
+    padding: 2% 0 0 4%;
+}
+.secD h2 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5rem;
+}
+.secD p {
+    margin-top: 0;
+    margin-bottom: 1%;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    opacity: 0.8;
+}
+.secD .con .text img{
+    padding: 3% 3% 3% 0;
+    width: 200px;
+    height: 40px;
+}
+
+.secC .photo2{
+    min-height: 150px;
+    background-image: url(../img/home/blog.png);
+    background-position: center;
+    background-size: cover;
+}
+.image{
+    text-align: right;
+}
+.toTop{
+    margin-top:30px;
+    text-align: center;
+}
+.toTop a{
+    display:block;
+    margin-bottom:40px;
+    padding:8px 20px;
+}
+.toTop img{
+    width: 50px;
+}
+.effect-fade {
+    opacity : 0;
+    transform : translate(0, 45px);
+    transition : all 1.5s;
+}
+    
+.effect-fade.effect-scroll {
+    opacity : 1;
+    transform : translate(0, 0);
+}
+
+@media (min-width: 768px){
+    
+    .secA{
+        max-height: 800px;
+    }
+    .conA1 ul{
+        padding-top: 3%;
+    }
+    .conA1 img{
+        width:3%;
+    }
+    .conA1 li{
+        padding: 20px;
+    }
+    .conA2 img{
+        width:15%;
+    }
+
+    .secB .conB2{
+        display: flex;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .conB2 .text{
+        flex:1;
+    }
+    .secC{
+        max-width: var(--large-width);
+        margin-left:8%;
+        margin-right:3%;
+    }
+    .secC .con{
+        display: flex;
+        max-width: var(--large-width);
+    }
+    .con .photo{
+        flex: 3;
+    }
+    .con .photo2{
+        flex: 3;
+    }
+    .con .text{
+        flex:2;
+    }
+
+    .secD{
+        max-width: var(--large-width);
+        margin-right:8%;
+        margin-left:3%;
+        
+    }
+    .secD .con{
+        display: flex;
+        max-width: var(--large-width);
+        
+    }
+    .con .photo{
+        flex: 3;
+    }
+    .con .text{
+        flex:2;
+    }
+    
+}
+@media (min-width: var(--large-width)){
+    .secC{
+        margin-left:auto;
+    }
+    .secD{
+        margin-right:auto;
+    }
+}
