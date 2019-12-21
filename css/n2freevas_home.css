@@ -24,6 +24,19 @@ body{
     background-size: cover;
 }
 
+.css-fadein-delay{
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadein{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
 /*==========================*/
 .red{
     color:var(--main-color);
@@ -189,6 +202,26 @@ body{
 }
     
 .effect-fade.effect-scroll {
+    opacity : 1;
+    transform : translate(0, 0);
+}
+.effect-fade-left {
+    opacity : 0;
+    transform : translate(-100%, 0);
+    transition : all 1.5s;
+}
+    
+.effect-fade-left.effect-scroll-left {
+    opacity : 1;
+    transform : translate(0, 0);
+}
+
+.effect-fade-right {
+    opacity : 0;
+    transform : translate(100%, 0);
+    transition : all 1.5s;
+} 
+.effect-fade-right.effect-scroll-right {
     opacity : 1;
     transform : translate(0, 0);
 }

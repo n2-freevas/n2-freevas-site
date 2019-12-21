@@ -27,11 +27,11 @@ body{
     pointer-events: none;
 }
 .fade_group div{
-    z-index:9999;
+    z-index:9998;
     transition: 1.5s;
 }
 .fade_group2 div {
-    z-index: 9998;
+    z-index: 9997;
     transition: 3s;
 }
 .fade_group div:nth-last-of-type(1){
@@ -39,8 +39,8 @@ body{
 }
 .fade_group div:nth-last-of-type(2){
     background:var(--main-color);
-    opacity: 0.4;
-    transition-delay: 0.5s;
+    opacity: 0.8;
+    transition-delay: 0.3s;
 }
 .fade_group div:nth-last-of-type(3){
     background:var(--dark-main-color);
@@ -136,7 +136,26 @@ body.fo .fade_group2 div{
 .secB .policy h5{
     font-size: 12px;
 }
-
+.css-fadein-delay{
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+}
+.css-fadein-delay2{
+    opacity: 0;
+    animation-name: fadein;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadein{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 
 @media (min-width: 768px){
     .conA img{

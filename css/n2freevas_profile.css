@@ -78,12 +78,19 @@ body{
 .main h2.ttl.large{
     font-family: "HiraMinProN-W3";
     margin: 0 0 35px 0;
-    font-size: 46px;
+    font-size: 36px;
     font-weight: bold;
 	text-align: left;
 }
-
+.txtBox{
+    font-size:15px;
+    margin-bottom:30px;
+}
+.imgFace{
+    text-align: center;
+}
 .imgFace img{
+    
     width:210px;
     height: 270px;
 }
@@ -109,10 +116,6 @@ body{
 .Prof{
     margin-bottom:30px;
     font-size: 12px;
-}
-
-.txtBox{
-    margin-bottom:30px;
 }
 .toTop{
     margin-top: 20px;
@@ -149,7 +152,9 @@ footer{
     .SNSicons img{
         width: 25%;
     }
-    
+    .txtBox{
+        margin-left:20px;
+    }
     .main.inner{
         max-width: 960px;
         padding: 0;

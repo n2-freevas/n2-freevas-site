@@ -9,7 +9,7 @@
 
     --large-width: 1200px;
 }
-h1,h2,h3,h4,h5,h6,p,a,img,ul{
+h1,h2,h3,h4,h5,h6,p,a,img,ul,section{
     margin: 0;
     padding: 0;
     border: 0;
@@ -157,28 +157,32 @@ body.fo .fade_group3 div{
     display: block;
     clear: both;
 }
-.main{
-    width:70%;
-    margin:0 10px 0 10px;
-    float: left;
-}
 .sidebar{
-    width: 20%;
     margin:70px 10px 0 10px;
-    float: right;
 }
+.sidebar .icon{
+    margin:0 20px 0 20px;
+    display: inline;
+}
+.main{
+    width:95%;
+    margin:0 10px 0 10px;
+    
+}
+
 .main h1{
     text-align: center;
     margin:20px 0 10px 10px
 }
 .main .con{
-    margin: 30px auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .main .con .lefter{
-    margin-left: 25px;
+    margin-left: 50px;
 }
 .main .con .righter{
-    margin-right: 25px;
+    margin-right: 50px;
 }
 .main a{
     position: relative;
@@ -267,16 +271,19 @@ footer{
     transform : translate(0, 0);
 }
 
-@media (max-width:959px){
-    
-}
-@media (max-width:767px){
-    
-}
 @media (min-width: 768px){
-
+    .sidebar{
+        width: 10%;
+        margin:70px 10px 0 10px;
+        float: right;
+    }
+    .main{
+        width:80%;
+        float:left;
+    }
+   
     .main article .icon img{
-        height:90px;
+        height:100px;
         padding: 0 15px 0 20px;
     }
     .main article .photo{
