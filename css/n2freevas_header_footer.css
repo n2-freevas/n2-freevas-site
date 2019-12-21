@@ -97,6 +97,10 @@ footer .con{
     background-color: var(--accent-color);
     color:var(--main-color)
 }
+.footB h4{
+    margin-top: 10px;
+    font-size: 15px;
+}
 .footC{
     font-size: 12px;
     text-align: center;

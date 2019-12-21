@@ -5,23 +5,26 @@
     --white: #FEFEFE;
     --accent-color: #FBC02D;
     --dark-main-color: #000000;
-    --gray-color: #494949;
-
     --large-width: 1200px;
+}
+html{
+    font-size: 20px;
 }
 h1,h2,h3,h4,h5,h6,p,a,img,ul,section{
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 120%;
 }
 body{
     font-family: Helvetica, Arial, serif;
-    color: var(--white);
+    color: var(--dark-main-color);
     margin: 0;
-    background-color: var(--dark-main-color);
+    background-color: var(--white);
     background-position: center;
     background-size: cover;
+}
+header{
+    color:var(--white);
 }
 /* CSS Opning Animation */
 .fade_group div{
@@ -112,6 +115,48 @@ body.fo .fade_group3 div{
 }
 
 /*==========================*/
+.nextpage{
+    font-size: 0.5rem;
+    margin: 10% 5% 2% 5%; 
+    padding: 0 4% 0 4%;
+    display: flex;
+    border: solid 1px var(--main-color);
+}
+.nextpage h5{
+    font-size: 0.3rem;
+}
+.nextpage .pre{
+    border-right: solid 1px var(--main-color);
+    text-align: left;
+    flex:1;
+    display: flex;
+}
+.nextpage .next{
+    text-align: right;
+    flex:1;
+    
+}
+.nextpage a{
+    display:flex;
+    color:inherit;
+    text-decoration: none;
+}
+.pre .nextpage-left{
+    flex:1;
+    margin: 5px 5px 0 0;
+    font-size:1.2rem
+}
+.pre .nextpage-right{
+    flex:5;
+}
+.next .nextpage-left{
+    flex:5;
+}
+.next .nextpage-right{
+    flex:1;
+    margin: 5px 0 0 5px;
+    font-size:1.2rem
+}
 .red{
     color:var(--main-color);
 }
@@ -119,6 +164,14 @@ body.fo .fade_group3 div{
     margin: 0;
     display: block;
     height: 200px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+.secPage{
+    color: var(--white);
+    display: block;
+    height: 150px;
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -135,6 +188,7 @@ body.fo .fade_group3 div{
 .conA{
     padding-top: 30px;
     font-family: "HiraMinProN-W3";
+    color: var(--white);
 }
 .conA img{
     width: 50px;
@@ -145,6 +199,24 @@ body.fo .fade_group3 div{
     margin-bottom: 15px;
 }
 .conA h1{
+    
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+.conAPage{
+    padding-top: 3px;
+    font-family: "HiraMinProN-W3";
+}
+.conAPage img{
+    width: 50px;
+    margin: 5px;
+}
+.conAPage h2{
+    font-size:12px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+.conAPage h1{
     
     letter-spacing: 5px;
     font-size: 25px;
@@ -158,12 +230,30 @@ body.fo .fade_group3 div{
     clear: both;
 }
 .sidebar{
-    margin:70px 10px 0 10px;
+    margin:5px 10px 0 10px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: solid 1px var(--main-color);
+}
+.sidebar h1{
+    font-size: 15px;
+    margin: 10px 0 10px 0;
 }
 .sidebar .icon{
-    margin:0 20px 0 20px;
+    margin:0 5px 0 5px;
     display: inline;
+    
+    
 }
+.sidebar .icon img{
+    border: ridge 1px;
+    border-left: ridge 7px;
+    border-color:var(--main-color);
+    border-top-left-radius: 10px;
+    width: 60px;
+    padding: 7px 7px 7px 7px;
+}
+
 .main{
     width:95%;
     margin:0 10px 0 10px;
@@ -172,10 +262,11 @@ body.fo .fade_group3 div{
 
 .main h1{
     text-align: center;
-    margin:20px 0 10px 10px
+    font-size: 15px;
+    margin:30px 0 0 10px
 }
 .main .con{
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 30px;
 }
 .main .con .lefter{
@@ -189,27 +280,31 @@ body.fo .fade_group3 div{
     flex: 1;
     margin:10px;
     display: flex;
-    border: solid 1px var(--main-color);
+    border: ridge 1px;
     border-left-width: 15px;
-    background-color: var(--dark-main-color);
-    color: var(--white);
+    border-top-left-radius: 15px;
+    border-color:var(--main-color);
+    background-color: var(--white);
+    color: var(--dark-main-color);
     text-decoration: none;
 }
 .main a:hover{
-    border-color: var(--white);
+    color: var(--white);
+    border-color: var(--dark-main-color);
 }
 .main article .icon img{
     height:70px;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px 0 10px;
     flex:1;
+    opacity: 0.8;
 }
 .main article .photo{
     flex:2;
     height: 80px;
-    background-color: var(--main-color);
+    background-color: var(--dark-main-color);
     background-position: center;
     background-size:cover;
-    opacity:0.3;
+    opacity: 0.2;
     transition: opacity 0.2s ease-out;
 }
 .main article .photo:hover{
@@ -217,6 +312,7 @@ body.fo .fade_group3 div{
 }
 
 .main article .text{
+    font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     text-align: right;
     bottom: 0;
@@ -229,7 +325,6 @@ body.fo .fade_group3 div{
 .main p{
     margin:0 10px 7px 0;
     font-size: 8px;
-    color:var(--gray-color);
 }
 .sidebar h2{
     font-size: 15px;
@@ -238,17 +333,77 @@ body.fo .fade_group3 div{
     font-size: 15px;
     margin:5px 0 5px 0
 }
+footer{
+    color:var(--white);
+}
+.document{
+    margin:0 5% 5% 5%;
+    display: block;
+    background-color: #f0f0f0;
+    border: ridge 1px var(--main-color);
+    padding:0 5% 0 5%;
+}
+.document h1{
+    text-align: center;
+    font-size: 1rem;
+    padding-bottom: 5%;
+}
+.document h6{
+    padding-top: 10%;
+    text-align: center;
+    font-size: 0.5rem;
+}
+.document.title{
+    text-align: center;
+}
+.document .titleimg img{
+    width: 80%;
+    margin:0 0 0 10%;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+.document .subject img{
+    width:50px;
+}
+.document h2{
+    margin: 30px 0 0 10px;
+    font-size:0.9rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs;
+    border-bottom: solid 1px var(--dark-main-color);
+    margin-bottom:10px;
+}
+.document h3{
+    font-size: 0.6rem;
+    line-height: 1.2rem;
+    margin: 0 0 10px 20px;
+}
 
-
+.mini{
+    margin-left:5%;
+}
+.mini h4{
+    padding-bottom: 5px;
+    border-bottom: solid 1px var(--dark-main-color);
+    color: var(--main-color);
+    font-size:1rem;
+}
+.mini h5{
+    margin-left:10px;
+    margin-bottom: 5px;
+    line-height: 1.2rem;
+    font-family: Helvetica, Arial, serif;
+    font-size: 0.6rem;
+}
 
 /* =================*/
 .toTop{
     margin-top:30px;
+    padding-top:30px;
     text-align: center;
 }
 .toTop a{
     display:block;
-    margin-bottom:40px;
     padding:8px 20px;
 }
 .toTop img{
@@ -272,9 +427,15 @@ footer{
 }
 
 @media (min-width: 768px){
+    html{
+        font-size:25px;
+    }
+    .document{
+        width:50%;
+    }
     .sidebar{
         width: 10%;
-        margin:70px 10px 0 10px;
+        margin:20px 5% 0 10px;
         float: right;
     }
     .main{
@@ -284,10 +445,9 @@ footer{
    
     .main article .icon img{
         height:100px;
-        padding: 0 15px 0 20px;
     }
     .main article .photo{
-        height: 90px;
+        height: 110px;
     }
     .main .con .lefter{
         margin-left: 75px;
