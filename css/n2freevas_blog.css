@@ -116,7 +116,7 @@ body.fo .fade_group3 div{
 
 /*==========================*/
 .nextpage{
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     margin: 10% 5% 2% 5%; 
     padding: 0 4% 0 4%;
     display: flex;
@@ -250,7 +250,7 @@ body.fo .fade_group3 div{
     border-left: ridge 7px;
     border-color:var(--main-color);
     border-top-left-radius: 10px;
-    width: 60px;
+    width: 50px;
     padding: 7px 7px 7px 7px;
 }
 
@@ -363,7 +363,7 @@ footer{
     background-size: cover;
     margin-bottom: 20px;
 }
-.document .subject img{
+#tip{
     width:50px;
 }
 .document h2{
@@ -378,7 +378,9 @@ footer{
     line-height: 1.2rem;
     margin: 0 0 10px 20px;
 }
-
+.document img{
+    width: 300px;
+}
 .mini{
     margin-left:5%;
 }
@@ -432,6 +434,9 @@ footer{
     }
     .document{
         width:50%;
+    }
+    .document img{
+        width: 400px;
     }
     .sidebar{
         width: 10%;

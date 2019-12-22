@@ -9,7 +9,7 @@
 
     --large-width: 1200px;
 }
-h1,h2,h3,h4,h5,h6,p,a,img,ul{
+h1,h2,h3,h4,h5,h6,p,a,img,ul, table{
     margin: 0;
     padding: 0;
     border: 0;
@@ -19,9 +19,10 @@ body{
     font-family: Helvetica, Arial, serif;
     color: var(--white);
     margin: 0;
+    padding: 0;
     background-color: var(--dark-main-color);
-    background-position: center;
-    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 #mom_layer{
     display: none;
@@ -165,6 +166,64 @@ footer{
     opacity : 1;
     transform : translate(0, 0);
 }
+
+/* 特別ページ */
+.show{
+    margin: 50px;
+    
+}
+.show h1{
+    font-size:20px;
+    margin: 15px 0 15px 0;
+}
+.show table{
+    font-size:12px;
+}
+.show .text{
+    text-align: justify;
+    margin: 0 0 30px 15px;
+}
+.show .left{
+    float: left;
+}
+.show .photo{
+    border: ridge 1px #888888;
+    border-left-width: 10px;
+    width: 300px;
+    height: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+.show .right{
+    float: left;
+    width:80%;
+    margin-left: 30px;
+}
+.show .right img{
+    width:25px;
+    margin-right: 5px;
+}
+.show.right p{
+    padding:10px;
+}
+.show .right h2{
+    font-size:16px;
+    border-bottom: solid 1px var(--white);
+}
+.show .right h4{
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.back img{
+    top:0;
+    left:-10px;
+    height:100%;
+    width:40px;
+    position: fixed;
+}
+
 @media (max-width:959px){
     .listA article{
         flex: 1 1 210px;
@@ -183,6 +242,17 @@ footer{
 
 }
 @media (min-width: 768px){
+    .show .left{
+        width:60%;
+    }
+    .show .photo{
+        width:400px;
+        height:267px;
+    }
+    .show .right{
+        margin-left:5%;
+        width:30%;
+    }
     
     .secA{
         height: 15vw;
@@ -190,6 +260,11 @@ footer{
     }
     .conA{
         padding-top: 4%;
+    } 
+}
+@media (min-width: 900px){
+    .show .photo{
+        width:500px;
+        height:333px;
     }
-    
 }
