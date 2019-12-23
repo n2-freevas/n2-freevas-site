@@ -109,7 +109,7 @@ body{
 
 .secC{
     opacity: 0;
-    margin: 2% 2% 0 4%;
+    margin: 2% 2% 0 10%;
     color: var(--dark-main-color);
     background-color: var(--gray-color);
 }
@@ -143,7 +143,7 @@ body{
 }
 
 .secD {
-    margin: 2% 4% 0 2%;
+    margin: 2% 10% 0 2%;
     color: var(--gray-color);
     background-color: var(--dark-main-color);
 }
