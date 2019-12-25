@@ -37,9 +37,9 @@ body{
 #kids_layer{
     display: none;
     position: fixed;
-    top:30%;
+    top:40%;
     left:50%;
-    margin-top:-25%;
+    margin-top:-27.5%;
     margin-left:-42.5%;
 }
 #kids_layer img{
