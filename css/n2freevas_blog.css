@@ -364,6 +364,7 @@ footer{
     margin-bottom: 20px;
 }
 #tip{
+    margin:0;
     width:50px;
 }
 .document h2{
@@ -379,6 +380,7 @@ footer{
     margin: 0 0 10px 20px;
 }
 .document img{
+    margin-left: 10%;
     width: 300px;
 }
 .mini{
