@@ -380,7 +380,7 @@ footer{
     margin: 0 0 10px 20px;
 }
 .document img{
-    margin-left: 10%;
+    margin-left: 3%;
     width: 300px;
 }
 .mini{
@@ -438,6 +438,7 @@ footer{
         width:50%;
     }
     .document img{
+        margin-left: 10%;
         width: 400px;
     }
     .sidebar{
