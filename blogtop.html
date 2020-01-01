@@ -5,7 +5,7 @@
     <link rel="stylesheet" href = "./css/n2freevas_blog.css">
     <link rel="stylesheet" href = "./css/n2freevas_header_footer.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="./js/n2freevas_blog_op.js"></script>
+    <script src="./js/n2freevas_blogtop.js"></script>
     <script src="./js/n2freevas_home.js"></script>
     <script src="https://kit.fontawesome.com/89e57c9a66.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
@@ -37,7 +37,7 @@
             <nav class="headB">
                 <ul>
                     <li><a href="home.html" ontouchstart="">Blog Top</a></li>
-                    <li><a href="index.html" ontouchstart="">About Admin</a></li>
+                    <li><a href="home.html" ontouchstart="">About Admin</a></li>
                 </ul>
             </nav>
         </div>
@@ -54,17 +54,34 @@
         <aside class="sidebar">
         <h1>CATEGORY</h1>
             <section>
-                <div class='icon articon'><img src="img/blog/art.png" onmouseover="this.src='img/blog/art_act.png'" onmouseout="this.src='img/blog/art.png'" alt=""></div>
-                <div class='icon physicalicon'><img src="img/blog/physical.png" onmouseover="this.src='img/blog/physical_act.png'" onmouseout="this.src='img/blog/physical.png'" alt=""></div>
-                <div class='icon studyicon'><img src="img/blog/study.png" onmouseover="this.src='img/blog/study_act.png'" onmouseout="this.src='img/blog/study.png'" alt=""></div>
-                <div class='icon othericon'><img src="img/blog/other.png" onmouseover="this.src='img/blog/other_act.png'" onmouseout="this.src='img/blog/other.png'" alt=""></div>
+                <div class='icon articon'><img src="img/blog/art.png" onmouseover="this.src='img/blog/art_act.png'" onmouseout="this.src='img/blog/art.png'" onclick = "pushArtIcon();" alt=""></div>
+                <div class='icon physicalicon'><img src="img/blog/physical.png" onmouseover="this.src='img/blog/physical_act.png'" onmouseout="this.src='img/blog/physical.png'" onclick = "pushPhysicalIcon();" alt=""></div>
+                <div class='icon studyicon'><img src="img/blog/study.png" onmouseover="this.src='img/blog/study_act.png'" onmouseout="this.src='img/blog/study.png'" onclick = "pushStudyIcon();" alt=""></div>
+                <div class='icon othericon'><img src="img/blog/other.png" onmouseover="this.src='img/blog/other_act.png'" onmouseout="this.src='img/blog/other.png'" onclick = "pushOtherIcon();" alt=""></div>
+                <div class='icon seeallicon'><img src="img/blog/seeall.png" onmouseover="this.src='img/blog/seeall_act.png'" onmouseout="this.src='img/blog/seeall.png'" onclick = "pushSeeallIcon();" alt=""></div>
             </section>
         </aside>
         <section class="main">
         <!-- ブログリボン郡　開始-->
             <h1>RECENT POST</h1>
             <div class='con'>
-                <article class="righter"><a href="blogPage/00-00-03.html" ontouchstart="">
+                <article class="righter physical"><a href="blogPage/00-00-05.html" ontouchstart="">
+                    <div class ="icon"><img src="img/blog/physical.png"></div>
+                    <div class ="photo" style="background-image:url(blogPage/00-00-05/0.png);"></div>
+                    <div class="text">
+                        <h2>DOMSは筋肉を助けない</h2>
+                        <p>DOMS don't help our muscle</p>
+                    </div>
+                </a></article>
+                <article class="lefter study"><a href="blogPage/00-00-04.html" ontouchstart="">
+                    <div class ="icon"><img src="img/blog/study.png"></div>
+                    <div class ="photo" style="background-image:url(img/port.png);"></div>
+                    <div class="text">
+                        <h2>改めて振り返る日本情勢</h2>
+                        <p>Look back Japanese condition again</p>
+                    </div>
+                </a></article>
+                <article class="righter art"><a href="blogPage/00-00-03.html" ontouchstart="">
                     <div class ="icon"><img src="img/blog/art.png"></div>
                     <div class ="photo" style="background-image:url(img/portfolio/content_image/design_original/COF_LOGO_black.png);"></div>
                     <div class="text">
@@ -73,16 +90,16 @@
                     </div>
                 </a></article>
 
-                <article class="lefter"><a href="blogPage/00-00-02.html" ontouchstart="">
+                <article class="lefter art"><a href="blogPage/00-00-02.html" ontouchstart="">
                     <div class ="icon"><img src="img/blog/art.png"></div>
                     <div class ="photo" style="background-image:url(img/portfolio/content_image/design/N2ICON.png);"></div>
                     <div class="text">
                         <h2>N2ロゴ制作工程</h2>
-                        <p>aside story of N2 Logo designing</p>
+                        <p>Aside story of N2 Logo designing</p>
                     </div>
                 </a></article>
 
-                <article class="righter"><a href="blogPage/00-00-01.html" ontouchstart="">
+                <article class="righter other"><a href="blogPage/00-00-01.html" ontouchstart="">
                     <div class ="icon"><img src="img/blog/other.png"></div>
                     <div class ="photo" style="background-image:url(img/portfolio/content_image/design/thissite.png);"></div>
                     <div class="text">
