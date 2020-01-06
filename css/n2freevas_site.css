@@ -103,22 +103,10 @@ body.fo .fade_group2 div{
 
 .conB {
     text-align: center;
-    margin-left: 5%;
 }
 .conB img{
-    
     margin-top: 5%;
     width: 40%;
-
-}
-.conB img:hover{
-    margin-top: 3%;
-}
-.conB button{
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
 }
 .secB .policy{
     padding: 0 5% 5% 5%;
