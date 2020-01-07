@@ -100,7 +100,6 @@ body.fo .fade_group2 div{
     font-size: 4vw;
     letter-spacing: 0.5em;
 }
-
 .conB {
     text-align: center;
 }
@@ -115,8 +114,6 @@ body.fo .fade_group2 div{
     width: 50px;
     height: 51px;
 }
-
-
 .secB .policy h4{
     padding-bottom: 8px;
     font-size: 18px;
@@ -159,9 +156,9 @@ body.fo .fade_group2 div{
     .conA p{
         font-size: 2vw;
     }
-
     .conB img{
-        width: 25%;
-        height: 10%;
+        margin-top: 5%;
+        width: 20%;
+        margin-left:3%;
     }
 }
