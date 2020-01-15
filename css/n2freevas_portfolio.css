@@ -118,6 +118,7 @@ body{
     background-color: var(--dark-main-color);
     color:inherit;
     text-decoration: none;  
+    max-width: 300px;
 }
 .listA .photo{
     min-height:200px;
