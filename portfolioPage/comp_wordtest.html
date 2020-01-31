@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155726262-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-155726262-1');
+</script>
+
+    <link rel="shortcut icon" href="../img/n2_favicon.png">
+    <link rel="stylesheet" href = "../css/n2freevas_comp_portfolio.css">
+    <link rel="stylesheet" href = "../css/n2freevas_header_footer.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../js/n2freevas_home.js"></script>
+    <script src="https://kit.fontawesome.com/89e57c9a66.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>N2_FreeVAS</title>
+    <style>
+        .sr-only{
+            position: absolute;
+            width:1px;
+            height:1px;
+            padding:0;
+            margin:-1px;
+            overflow:hidden;
+            clip:rect(0,0,0,0);
+            border:0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="con">
+            <div class="headA">
+                <a href="../index.html"><img src="../img/n2_logo_white.svg",alt=""></a>
+            </div>
+        </div>
+    </header>
+    <a href="comp_wordtest.html">
+        <section class = "awork work3">
+        </section>
+    </a> 
+
+    <section class="document">
+        <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Purpose</h2>
+            <div class="bg_b">
+                <img class="inimg" src="../img/comp_portfolio/test_about.png">
+                <h4>
+                    これを作ろうと思った頃，Pythonにめちゃくちゃハマっており (特にその簡単さ，ライブラリの豊富さ，それらの使いやすさ) 自身のスキル確認のためにPythonで何か作ろうと試みました．<br>
+                    私は，予備校のスタッフとして働いているのですが，予備校の中に何か電子化したら楽なものはないか，と考えた結果，「英単語テスト」が浮かんだのです．
+                </h4>
+                
+                <h4>
+                    その予備校にある英単語テストは大きく分けて２種類存在します．<br>
+                    一つは，その予備校が制作した英単語テスト．アプリもあります．<br>
+                    もう一つは，それぞれの生徒が高校で使う英単語帳に対応した英単語テスト<br>
+                </h4>
+                    <img class="inimg" src="../img/comp_portfolio/test_req.png">
+                <h4>
+                    後者は，完全に電子化されているわけではありませんでした．生徒がスタッフに「○○英単語帳の100から200(出題範囲)でお願いします」と申請し，Excelに打ち込まれたデータベースをExcelマクロで抽出，シャッフルし，A4のテストとして印刷する．
+                    シンプルな構成のシステムで，英単語力を測る際はこれをよく用いています．しかし，これには以下の欠点がありました．
+                    <ul>
+                        <li>紙媒体特有の煩わしさ</li>
+                        <li>採点の面倒さ</li>
+                        <li>採点結果は教師と同期確認しなければならない</li>
+                    </ul>
+                </h4>
+                <h4>
+                    順を追って掘り下げてみましょう．
+                <h4>
+                    <ul>
+                    <li>紙媒体特有の煩わしさ</li>
+                    </ul>
+                    英単語をみて，対応する日本語を空欄に「書く」．これが私には凄まじく煩わしいと感じていました．そもそも，スタッフに申請しないと発行できないのもおかしいと思っていましたし，生徒がやりたい時にやれないのはどうかなと思ったのです．
+                </h4>
+                <h4>
+                    <ul>
+                    <li>採点の面倒さ</li>
+                    </ul>
+                    紙に書いた答案を，模範回答と照らし合わせ採点．なんて面倒なんでしょうか．もちろん，それが悪いことだけではないですが．
+                </h4>
+                <h4>
+                    <ul>
+                    <li>採点結果は教師と同期確認しなければならない</li>
+                    </ul>
+                    教師サイドの人間が，生徒のテスト結果を知りたい時，その生徒はその紙に残った結果を教師の目の前に直接届けなければならない．これが，同期確認です．紙媒体でも非同期にする方法はありますが (ポストに投函する など) なんともスマートじゃない印象を受けます．
+                </h4>
+                <h4>
+                これらの問題を解決し，尚且つ今までなかった機能も追加する．そういう方針で，制作を開始しました．
+                </h4>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Using</h2>
+            <div class="bg_b">
+                <img class="inimg" src="../img/comp_portfolio/test_use.png">
+                <h4>
+                    <ul>
+                        <li>Python tkinter</li>
+                        <li>Sketch</li>
+                    </ul>
+                    プログラミング部門，Python．GUIはtkinterという備えつけのライブラリで構成しました．<br>
+                    UIパーツ，その他見た目部門がSketch．今回は，Sketchでgifアニメーションを作り，それを盛り込んでいます．
+                </h4>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Main Flow</h2>
+            <div class="bg_b">
+                <img class="inimg" src="../img/comp_portfolio/test_main.png">
+                <h4>
+                    図は，左から「ホーム画面」「テスト設定」「テスト中画面」「結果」を表す画面の様子です．<br>
+                    「テスト設定」で自分が持っている英単語帳のデータベースを呼び出し，出題範囲やモードを指定．それを実際にテストし結果を確認．といった流れです．<br>
+                    英単語帳のデータベースは，元々Excelデータがあったので，csv形式にし，それを読み込むシンプルな形を取りました．
+                </h4>
+                <img src="../img/comp_portfolio/Preset2Testing_shift.gif">
+                <img src="../img/comp_portfolio/Testing2Result_shift.gif">
+                <img src="../img/comp_portfolio/Home2Remind_shift.gif">
+                <h4>
+                    これらのgifアニメはSketchを用いて作られました．画面から画面へ映る時のアニメーションです．(実際のコマの早さはもっと早いです．)
+                    Pythonは，gifアニメを再生する機能がデフォルトでないため，gifアニメを指定のfpsで回すプログラムを作成しました．
+                </h4>
+                <img src="../img/comp_portfolio/Testing2Result_perfect_shift.gif">
+                <h4>
+                満点だとちょっと特殊演出になります．<br>
+                こうして，「採点自動化」「テストの電子化」に成功しました．結果として，テストにかかる時間は大幅に減りました．
+                </h4>
+            </div>
+        </div>
+        <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Reminder</h2>
+            <div class="bg_b">
+                <img class="inimg" src="../img/comp_portfolio/test_remind.png">
+                <h4>
+                    機能の一つとして，リマインド機能を導入しました．これは，「過去にその単語を何回正解しているかがわかる」というものです．
+                    昇順にして，よく正解する単語を調べたり，降順にして，まだ正解したことのない単語を知ったりするのに使えます．
+                </h4>
+                <img class="inimg" src="../img/comp_portfolio/test_remind2.png">
+                <h4>
+                    上図は，昇順にした時の画面です．ちなみに，弱点補強機能として，降順で並べた際に単語数を指定することで，正解したことのない/正解数の少ない単語を使ったテストに行くこともできます．
+                </h4>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Other Function</h2>
+            <div class="bg_b">
+                <img class="inimg" src="../img/comp_portfolio/test_other.png">
+                <h4>
+                    ビジュアルのないバックエンドの機能ですが，生徒の正当記録は全て保存され，それを集計した「正解状況csv」は，指定のIPアドレス宛に送信することもできます．
+                </h4>
+            </div>
+        </div>
+        <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Experience</h2>
+            <div class="bg_b">
+                <img class="inimg" src="../img/comp_portfolio/test_exp.png">
+                <h4>
+                    今一番興味のある言語で，一から自分の作りたいものを作ることができ，非常に面白かったです．<br>このアプリケーションは，私の担当する生徒にまず使わせて使用感をテストし，よければ無制限配布まで考えています．<br>
+                    この経験で一番得られたこととしては，「欲しいと思う機能を考え，見つけ，それを実装できた」ということに尽きます．
+                </h4>
+            </div>
+        </div>
+
+    <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Other Page</h2>
+    </div>
+    </section>
+    <a href="comp_cof.html">
+    <div class="shade">
+        <section class = "work work1 effect-fade">
+        </section>
+    </div>
+    </a>
+    <a href="comp_wordtest.html">
+    <div class="shade">
+        <section class = "work work2 effect-fade">
+        </section>
+        </div>
+    </a>
+
+    <p class="toTop">
+            <a href="#top"><img src="../img/toTop.svg" onmouseover="this.src='../img/toTop_act.svg'" onmouseout="this.src='../img/toTop.svg'" alt=""></a>
+    </p>
+    <div class="about">
+            <h2><span><img id="tip" src="../img/tips.png" alt=""></span>Ending</h2>
+            <div class="bg_b">
+                <h4>
+                    よろしければ，一般向けページからプロフィールや，趣味のポートフォリオもご覧ください．<br>
+                    下のフッターからどうぞ．
+                </h4>
+            </div>
+        </div>
+    <footer>
+        <div class="con">
+            <div class="footA">
+                <img src="../img/n2_logo_white.svg" alt="">
+                <h2>N2 FreeVAS</h2>
+                <p>nonodethcloud@icloud.com</p>
+                <p>193426012@ccmailg.meijo-u.ac.jp</p>
+                <nav class="footD">
+                <ul>
+                    <li><a href="https://github.com/n2-freevas" alt="Github" ontouchstart=""><span class="fab fa-github" title="Github"></span></a></li>
+                    <li><a href="https://www.instagram.com/n2_freevas/?hl=ja" alt="Insta" ontouchstart=""><span class="fab fa-instagram" title="Instagram"></span></a></li>
+                    <li><a href="https://twitter.com/N2_FreeVAS" alt="Twitter" ontouchstart=""><span class="fab fa-twitter" title="Twitter"></span></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCanFVfbVDU4_S3D_XAg0dLA/featured" alt="Youtube" ontouchstart=""><span class="fab fa-youtube" title="YouTube"></span></a></li>
+                    <li><a href="#" alt="Google+" ontouchstart=""><span class="fab fa-google-plus" title="Google Plus"></span></a></li>
+                </ul>
+
+        </nav>
+            
+            </div>
+            <nav class="footB">
+                <div>
+                    <h3>PUBLICS</h3>
+                    <ul>
+                        <li><a href="profile.html" ontouchstart="">Profile</a></li>
+                        <li><a href="portfolio.html" ontouchstart="">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>PRIVATES</h3>
+                    <ul>
+                        <li><a href="blogtop.html" ontouchstart="">Blog</a></li>
+                        <li><a href="#" ontouchstart="">------</a></li>
+                        <li><a href="#" ontouchstart="">------</a></li>
+                        <li><a href="#" ontouchstart="">------</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>OTHER</h3>
+                    <ul>
+                       <li><a href="#" ontouchstart="">--------</a></li>
+                        <li><a href="policy.html" ontouchstart="">Privacy Poricy</a></li>
+                        <li><a href="#" ontouchstart="">-------</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="footC">
+                ©︎ N2 FreeVAS. All right reserved.<br>
+                (In honor of the Buenos Aires Convention)
+            </div>
+        </div>
+        
+    </footer>
+
+</body>
+</html>

@@ -122,7 +122,6 @@ body{
 }
 .secC .text{
     padding: 2% 0 0 4%;
-    border: solid 3px var(--dark-main-color);
 }
 .secC h2 {
     margin-top: 1%;
@@ -155,7 +154,7 @@ body{
 }
 .secD .text{
     padding: 2% 0 0 4%;
-    border: solid 3px var(--white);
+    
 }
 .secD h2 {
     margin-top: 2%;

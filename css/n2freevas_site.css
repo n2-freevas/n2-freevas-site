@@ -20,8 +20,8 @@ body{
 .fade_group div, .fade_group2 div{
     content:'';
     position: fixed;
-    top:0;
-    left: -100vw;
+    top:200vw;
+    left: 0;
     width: 100vw;
     height: 100%;
     pointer-events: none;
@@ -36,47 +36,50 @@ body{
 }
 .fade_group div:nth-last-of-type(1){
     background:var(--white);
-}
-.fade_group div:nth-last-of-type(2){
-    background:var(--main-color);
-    opacity: 0.8;
+    transition-duration: 2.5s;
     transition-delay: 0.3s;
 }
-.fade_group div:nth-last-of-type(3){
+
+.fade_group div:nth-last-of-type(2){
     background:var(--dark-main-color);
-    transition-delay: 0.8s;
+    transition-duration: 2.9s;
+    transition-delay: 0.9s;
 }
 .fade_group2 div:nth-last-of-type(1){
     background:var(--main-color);
     opacity:0.9;
-    transition-delay: 0.9s;
+    height: 50vw;
+    transition-duration: 6s;
+    transition-delay: 0.6s;
 }
 .fade_group2 div:nth-last-of-type(2){
     background:var(--white);
     opacity:0.5;
-    transition-delay: 1.4s;
+    transition-duration: 4s;
+    height: 20vw;
+    transition-delay: 0.9s;
 }
 body.fo .fade_group div{
-    left:0;
+    top:0;
 }
 body.fo .fade_group2 div{
-    left:100vw;
+    top:-100vw;
 }
 
 .body_home_bg1{
-    background-image: url(../img/opning/bg/bg1.png);
+    background-image: url(../img/op/bg/bg1.png);
 }
 .body_home_bg2{
-    background-image: url(../img/opning/bg/bg2.png);
+    background-image: url(../img/op/bg/bg2.png);
 }
 .body_home_bg3{
-    background-image: url(../img/opning/bg/bg3.png);
+    background-image: url(../img/op/bg/bg3.png);
 }
 .body_home_bg4{
-    background-image: url(../img/opning/bg/bg4.png);
+    background-image: url(../img/op/bg/bg4.png);
 }
 .body_home_bg5{
-    background-image: url(../img/opning/bg/bg5.png);
+    background-image: url(../img/op/bg/bg5.png);
 }
 
 .conA {
@@ -84,8 +87,8 @@ body.fo .fade_group2 div{
 }
 
 .conA img{
-    margin-top: 20vw;
-    width: 20%;
+    margin-top: 75px;
+    width: 15%;
 }
 .conA h1{
     margin-top: 0;
@@ -101,10 +104,14 @@ body.fo .fade_group2 div{
     letter-spacing: 0.5em;
 }
 .conB {
+    margin-top: 25px;
     text-align: center;
 }
+h6{
+    margin: 50px 0 5px 0;
+    padding: 0;
+}
 .conB img{
-    margin-top: 5%;
     width: 40%;
 }
 .secB .policy{
@@ -145,7 +152,6 @@ body.fo .fade_group2 div{
 @media (min-width: 768px){
     .conA img{
         width: 10%;
-        margin-top: 10vw;
     }
     
     .conA h1{
@@ -157,8 +163,6 @@ body.fo .fade_group2 div{
         font-size: 2vw;
     }
     .conB img{
-        margin-top: 5%;
         width: 20%;
-        margin-left:3%;
     }
 }
