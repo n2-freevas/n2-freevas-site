@@ -160,6 +160,13 @@ body{
     padding-bottom: 20px;
 }
 
+.visimg{
+    margin:15px 10px 15px 10px;
+    width:90%;
+    min-width: 300px;
+    max-width: 600px;
+}
+
 .inimg{
     margin:10px auto 10px auto;
     width:300px;
