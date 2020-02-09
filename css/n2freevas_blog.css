@@ -16,7 +16,7 @@ h1,h2,h3,h4,h5,h6,p,a,img,ul,section{
     border: 0;
 }
 body{
-    font-family: Helvetica, Arial, serif;
+    font-family: "HiraMinProN-W3", 'HiraMinProN-W6',Helvetica, '游明朝',Arial, serif;
     color: var(--dark-main-color);
     margin: 0;
     background-color: var(--white);

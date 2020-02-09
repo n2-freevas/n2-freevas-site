@@ -18,7 +18,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ul, ol, li, dl, dt, dd, table, capti
 }
 body{
     font-size: 14px;
-    font-family: Helvetica, '游ゴシック', 'Yu Gothic', YuGothic, HiraKakuProN-W3, 'メイリオ', Meiryo, sans-serif;
+    font-family: "HiraMinProN-W3", 'HiraMinProN-W6',Helvetica, '游明朝',Arial, serif;
     color: var(--white);
     background-color: var(--white);
     text-align: left;

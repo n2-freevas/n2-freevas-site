@@ -20,7 +20,7 @@ html{
 }
 body{
     height:100%;
-    font-family: Helvetica, Arial, serif;
+    font-family: "HiraMinProN-W3", 'HiraMinProN-W6',Helvetica, '游明朝',Arial, serif;
     color: var(--white);
     margin: 0;
     background-color: var(--main-color);
@@ -150,6 +150,7 @@ body{
 .about h4{
     font-size: 12px;
     margin: 20px 40px 20px 40px;
+    padding:0 40px 0 40px;
     text-align: left;
 }
 .about a{
@@ -160,7 +161,7 @@ body{
 }
 .bg_b{
     background-color: black;
-    padding-bottom: 20px;
+    padding: 10px 0 10px 0;
 }
 
 .visimg{
@@ -177,6 +178,8 @@ body{
 
 .document ul{
     position: relative;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
   
 .document ul li{
@@ -188,6 +191,27 @@ body{
     padding: 0.5em;
     list-style-type: none!important;/*ポチ消す*/
 }
+
+.cbutton{
+    text-align: center;
+}
+.backpage{
+    margin:3d0px auto 20px auto;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 28px;
+    color:var(--white);
+    cursor: pointer;
+}
+.backpage h6{
+    font-size: 12px;
+}
+.backpage:hover{
+    color: var(--accent-color);
+}
+
 
 @media (min-width: 700px){
     .document{

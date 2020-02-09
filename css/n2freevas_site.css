@@ -8,7 +8,7 @@
 }
 
 body{
-    font-family: "HiraMinProN-W3", 'HiraMinProN-W6',Helvetica, Arial, serif;
+    font-family: "HiraMinProN-W3", 'HiraMinProN-W6',Helvetica, '游明朝',Arial, serif;
     color: var(--white);
     margin: 0;
     height: 100vh;
