@@ -6,10 +6,6 @@
     --accent-color: #FBC02D;
     --dark-main-color: #000000;
 }
-html{
-    height:300vh;
-    width:300vw;
-}
 body{
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "sans-serif";
     letter-spacing: 1px;
@@ -17,11 +13,9 @@ body{
     margin: 0;
     background-color: var(--dark-main-color);
     text-decoration: none;
-    background-position: bottom;
+    background-position: center;
     background-size: cover;
     position: relative;
-    height:300vh;
-    width: 300vw;
 }
 
 #loader{
@@ -170,6 +164,7 @@ body{
     height: calc(100vh * 3)
     
 }
+
 #menu{
     position: absolute;
     height: 100vh;
@@ -184,13 +179,7 @@ body{
     margin: var(--margin_var);
     position: absolute;
 }
-#create{
-    position: absolute;
-    top:100vh;
-    left:0;
-    height:200vh;
-    width:100vw;
-}
+
 .border div{
     --borderwidth: 2px;
     background: var(--white);
@@ -241,6 +230,7 @@ body{
 
 .main{
     padding: var(--padding_var);
+    font-size: 18px;
     position: absolute;
     text-align: center;
     height:calc(100% - (var(--padding_var))* 2);
@@ -266,7 +256,7 @@ body{
 }
 .main .appbox .app{
     width:100%;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: normal;
 }
 .main img{
@@ -455,6 +445,24 @@ body{
     }
 }
 
+#profile{
+    position: absolute;
+    top:0;
+    left:100vw;
+    height:100vh;
+    width:100vw;
+}
+.profilebox{
+    padding: var(--padding_var);
+}
+
+#create{
+    position: absolute;
+    top:100vh;
+    left:0;
+    height:200vh;
+    width:100vw;
+}
 @media screen and (min-width: 700px){
 
     #menu_box{
@@ -483,10 +491,16 @@ body{
 
 }
 @media screen and (max-width:400px){
+    .main{
+        font-size: 12px;
+    }
     .appbox{
         justify-content: space-between;
     }
+    .app{
+        font-size: 9px;
+    }
     .app img{
-        width:100px;
+        width:90px;
     }
 }
