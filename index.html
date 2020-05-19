@@ -10,42 +10,108 @@
 
   gtag('config', 'UA-155726262-1');
 </script>
-
+    
     <link rel="shortcut icon" href="./img/n2_favicon.png">
-    <link rel="stylesheet" href = "./css/n2freevas_site.css">
+    <link rel="stylesheet" href = "./css/n2freevas_index.css">
+    <link rel="stylesheet" href = "./css/n2freevas_reset.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="./js/n2freevas_site.js"></script>
+    <script src="./js/n2freevas_index.js"></script>
+    <script src="./js/n2freevas_loading.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>N2_FreeVAS</title>
 </head>
-<body class = "body_home fo fadeout">
-    <div class="fade_group">
-        <div></div>
-        <div></div>
+<body class = 'body_home'>
+
+    <div id="loader">
+        <div id="semipolar-spinner">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+        </div>
+        <p id='loader_text' style='font-family:"メイリオ";margin-top:15px;font-weight:normal;'> L O A D I N G </p>
     </div>
-    <div class="fade_group2">
-        <div></div>
-        <div></div>
+    <div id = "first_bg">
+            <img id ='first_logo'src="img/n2_logo_white.svg" alt="">
     </div>
-    <section class = "conA css-fadein-delay">
-    <div class = "container">
-        <img src="img/n2_logo_white.svg" alt="">
-        <h1> N2 FreeVAS</h1>
-        <p>portfolio and blog</p>
+    <div id='contents'>
+        <div id='menu'>
+            <div id = "menu_box">
+                <div class='border'>
+                    <div class='borderT'></div>
+                    <div class='borderB'></div>
+                    <div class='borderR'></div>
+                    <div class='borderL'></div>
+                </div>
+                <div class='mask'>
+                </div>
+                <div class='main'>
+                
+                    <p style='font-size:12px;'>What do you want to know<br>about me ?</p>
+                    <div class= 'appcontainer'>
+                        <div class='appbox'>
+                            <div class='app'>
+                                <p>Profile</p>
+                                <img src='img/appmenu/profile_icon.svg' alt=''>
+                            </div>
+                            <div class='app'><p>Blog</p>
+                                <img src='img/appmenu/blog_icon.svg' alt=''>
+                            </div>                            
+                        </div>
+                        <div class='appbox'>
+                            <div class='app'>
+                                <p>Activity</p>
+                                <img src='img/appmenu/create_icon.svg' alt=''>
+                            </div>
+                            <div class='app'>
+                                <p>That article</p>
+                                <img src='img/appmenu/config_icon.svg' alt=''>
+                            </div>
+                        </div>
+                        <div class='appbox'>
+                            <div class='app'>
+                                <p>Contact</p>
+                                <img src='img/appmenu/contact_icon.svg' alt=''>
+                            </div>
+                            <div class='app'>
+                                <img style='visibility:hidden;' src='img/appmenu/blog_icon.svg' alt=''>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='create'>
+            <p>contents</p>
+        </div>
+        <div class='bg_clock'>
+            <div class='body'>
+                <img class='time time-1' src='img/n2_clock/time-1.svg' alt=''>
+                <img class='time time-2' src='img/n2_clock/time-2.svg' alt=''>
+                <img class='time time-3' src='img/n2_clock/time-3.svg' alt=''>
+                <img class='time time-4' src='img/n2_clock/time-4.svg' alt=''>
+                <img class='time time-5' src='img/n2_clock/time-5.svg' alt=''>
+                <img class='time time-6' src='img/n2_clock/time-6.svg' alt=''>
+                <img class='time time-7' src='img/n2_clock/time-7.svg' alt=''>
+                <img class='time time-8' src='img/n2_clock/time-8.svg' alt=''>
+                <img class='time time-9' src='img/n2_clock/time-9.svg' alt=''>
+                <img class='time time-10' src='img/n2_clock/time-10.svg' alt=''>
+                <img class='time time-11' src='img/n2_clock/time-11.svg' alt=''>
+                <img class='time time-12' src='img/n2_clock/time-12.svg' alt=''>
+                <img class='insidewheel' src='img/n2_clock/clock_insidewheel.svg' alt=''>
+                <img src='img/n2_clock/clock_body.svg' alt=''>
+            </div>
+            
+        </div>
+
+        
+        <script src="./js/n2freevas_fontConfig.js"></script>
+        
     </div>
-    </section>
-    <section class = "conB css-fadein-delay2">
-        <a href="home.html">
-            <img src="img/op/ACCESS_button.svg" onmouseover="this.src='img/op/ACCESS_button_act.svg'" onmouseout="this.src='img/op/ACCESS_button.svg'" alt="">
-        </a>
-    </section>
-    <section class = "conB css-fadein-delay2">
-        <h6>企業の採用担当者様向け ポートフォリオはこちらから．</h6>
-        <a href="comp_portfolio.html">
-            <img src="img/op/comp.svg" onmouseover="this.src='img/op/comp_act.svg'" onmouseout="this.src='img/op/comp.svg'" alt="">
-        </a>
-    </section>
+    
 </body>
+
 </html>

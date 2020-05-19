@@ -20,10 +20,10 @@ body{
 .fade_group div, .fade_group2 div{
     content:'';
     position: fixed;
-    top:200vw;
+    top:100vh;
     left: 0;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     pointer-events: none;
 }
 .fade_group div{
@@ -33,6 +33,12 @@ body{
 .fade_group2 div {
     z-index: 9997;
     transition: 3s;
+}
+.fo .fade_group div{
+    top:0;
+}
+.fo .fade_group2 div{
+    top:-100vw;
 }
 .fade_group div:nth-last-of-type(1){
     background:var(--white);
@@ -59,12 +65,7 @@ body{
     height: 20vw;
     transition-delay: 0.9s;
 }
-body.fo .fade_group div{
-    top:0;
-}
-body.fo .fade_group2 div{
-    top:-100vw;
-}
+
 
 .body_home_bg1{
     background-image: url(../img/op/bg/bg1.png);
