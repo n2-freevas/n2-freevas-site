@@ -270,7 +270,7 @@ body{
     font-weight: normal;
 }
 .main img{
-    max-width:50%;
+    width:50%;
 }
 
 .bg_clock{
@@ -462,10 +462,6 @@ body{
         margin-right: calc((100vw - 600px) /2);
     }
 
-    .app img{
-        width:120px;
-    }
-
     .bg_clock .body{
         top:35vh;
         left:50vw;
@@ -485,4 +481,12 @@ body{
         width:85px;
     }
 
+}
+@media screen and (max-width:400px){
+    .appbox{
+        justify-content: space-between;
+    }
+    .app img{
+        width:100px;
+    }
 }

@@ -1,3 +1,7 @@
+var ua = window.navigator.userAgent.toLowerCase()
+var body = document.body;
+
+
 
 
 window.onload = function(){
@@ -10,8 +14,14 @@ window.onload = function(){
     
     //this.document.getElementById('menu_box').scrollIntoView(true)
     this.scrollTo(0,0)
-    
-    this.scrollTo(window.innerWidth,window.innerHeight)
+    if((ua.indexOf("android") !== -1) || (ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1)) {
+        console.log('Adress bar infection is avoid.');
+        this.scrollTo(this.document.documentElement.innerWidth,this.document.documentElement.innerHeight)
+    }
+    else {
+        console.log('Scrolling menu box')
+        this.scrollTo(window.innerWidth,window.innerHeight)
+    }
     
 
     this.setTimeout(
