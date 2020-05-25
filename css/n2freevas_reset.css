@@ -4,3 +4,25 @@ h1.h2,h3,h4,h5,h6,p{
     margin:0;
     padding:0;
 }
+button {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+  /* 画像の下に空きができるのを防ぐ */
+button img {
+    display: block;
+  }
+  /* Internet Explorer と Opera はボタンを押下したときに数ピクセル右下に動くのを防ぐ */
+button:active,button img {
+     position: relative;
+}
+
+/* FireFoxで発生する空白を消す */
+button::-moz-focus-inner {
+    padding: 0;
+    border: none;
+}
+button:focus {
+	outline:0;
+}

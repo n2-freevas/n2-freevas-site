@@ -1,1 +1,12 @@
-<svg width="296px" height="3087px" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-388 -151)" fill="none" fill-rule="evenodd"><rect fill-opacity="0.75" fill="#D2D2D2" x="388" y="151" width="296" height="3087" rx="77"/><path fill="#FCFBFB" d="M545 1878l-47-207 47-206h102l-69 206 68 207z"/><text font-family="ToppanBunkyuMidashiGothicStdN-ExtraBold, Toppan Bunkyu Midashi Gothic" font-size="70" font-weight="600" letter-spacing="-0.515277636" fill="#FFF8F8"><tspan x="498" y="1984">Back</tspan></text></g></svg>
+<svg width="867px" height="867px" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="a">
+      <stop stop-color="#FF5454" offset="0%"/>
+      <stop stop-color="#FF6E6E" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(-694 -1068)" fill="none" fill-rule="evenodd">
+    <circle fill="url(#a)" cx="1127.5" cy="1501.5" r="433.5"/>
+    <path d="M930 1368l197 217 197-217a49 49 0 0172-1c20 21 20 54 0 75l-255 265a20 20 0 01-28 0l-254-265a55 55 0 010-75 49 49 0 0171 1z" fill="#FFF"/>
+  </g>
+</svg>

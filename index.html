@@ -40,60 +40,62 @@
     <div id='contents'>
         <div id='menu'>
             <div id = "menu_box">
-                <div class='border'>
-                    <div class='borderT'></div>
-                    <div class='borderB'></div>
-                    <div class='borderR'></div>
-                    <div class='borderL'></div>
-                </div>
-                <div class='mask'>
-                </div>
+                <div class='border'><div class='borderT'></div><div class='borderB'></div><div class='borderR'></div><div class='borderL'></div></div>
+                <div class='mask'></div>
                 <div class='main'>
-                
                     <p>What do you want to know<br>about me ?</p>
                     <div class= 'appcontainer'>
                         <div class='appbox'>
-                            <div class='app'>
-                                <p>Profile</p>
-                                <img src='img/appmenu/profile_icon.svg' alt=''>
-                            </div>
-                            <div class='app'><p>Blog</p>
-                                <img src='img/appmenu/blog_icon.svg' alt=''>
-                            </div>                            
-                        </div>
+                            <div class='app'><p>Profile</p><button type='button' onclick='OnclickProfileButton();'><img src='img/appmenu/profile_icon.svg' alt=''></button></div>
+                            <div class='app'><p>WEBlog</p><button type='button' onclick='OnclickBlogButton();'><img src='img/appmenu/blog_icon.svg' alt=''></button></div></div>
                         <div class='appbox'>
-                            <div class='app'>
-                                <p>Activity</p>
-                                <img src='img/appmenu/create_icon.svg' alt=''>
-                            </div>
-                            <div class='app'>
-                                <p>That article</p>
-                                <img src='img/appmenu/config_icon.svg' alt=''>
-                            </div>
-                        </div>
+                            <div class='app'><p>Activity</p><button type='button' onclick='OnclickActivityButton();'><img src='img/appmenu/create_icon.svg' alt=''></button></div>
+                            <div class='app'><p>That article</p><button type='button' onclick='OnclickArticleButton();'><img src='img/appmenu/config_icon.svg' alt=''></button></div></div>
                         <div class='appbox'>
-                            <div class='app'>
-                                <p>Contact</p>
-                                <img src='img/appmenu/contact_icon.svg' alt=''>
-                            </div>
-                            <div class='app'>
-                                <img style='visibility:hidden;' src='img/appmenu/blog_icon.svg' alt=''>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                            <div class='app'><p>Contact</p><button type='button' onclick='OnclickContactButton();'><img src='img/appmenu/contact_icon.svg' alt=''></button></div>
+                            <div class='app' style='visibility:hidden;'><p>Newcontent</p><button type='button'><img src='img/appmenu/contact_icon.svg' alt=''></div></button></div></div></div></div></div>
         <div id='profile'>
-            <div class='profilebox'>
-                <p>myname is n2 freevas</p>
+            <div class='box profbg'>
+            
+                <div class='profilemask'></div>
+                
+                <div class='main' style='text-align:left;'>
+                    <div class='title'>
+                        <img src='img/n2_logo_white.svg'>
+                        <p>TARO Nonoyama</p>
+                    </div>
+                    <div class='profilecontent'>
+                        <dl class="Prof cf"><table>
+                        <tr valign="top"><td width='20%'>Sex ></td><td width='100%'>Male</td></td>
+                        <tr valign="top"><td>Age ></td><td id='age'><span id='passtime' style='font-size:5px;'></span></td>
+                        <tr valign="top"><td>Blood ></td><td>A-type</td></tr>
+                        <tr valign="top"><td>Skill ></td><td>Python,JS,HTML/CSS</td></tr>
+                        <tr valign="top"><td>Study ></td><td>Color Science(B4),Sensor Engineering(Mas)</td></tr>
+                        <tr valign="top"><td>Alias ></td><td>N2 FreeVAS [n-tu' friv'As]</td></tr>
+                        </table></dl>
+                        <script src="./js/n2freevas_birthday.js"></script>
+                    </div>
+                    <div class='profilecontent' style='text-align:center;'>
+                        <p>Hello again, to all my friend.</p>
+                        <p>My name is N2 FreeVAS</p>
+                        <p>Together we can play some interesting!</p>
+                    </div>
+                    <div class='profilecontent' style='text-align:center;'>
+                        <p>Please subscribe my SNSs</p>
+                        <p>and N2 Web Log :)</p>
+                    </div>
+                    <div class='back' style = ''>
+                        <div class='app'><button type='button' onclick='OnclickBackMenuButton();'><img src='img/back.svg' alt=''></button></div></div>
+                       
+                    
+                </div>
             </div>
         </div>
         <div id='create'>
             <p>contents</p>
         </div>
         <div class='bg_clock'>
-            <div class='body'>
+            <div class='clockbody'>
                 <img class='time time-1' src='img/n2_clock/time-1.svg' alt=''>
                 <img class='time time-2' src='img/n2_clock/time-2.svg' alt=''>
                 <img class='time time-3' src='img/n2_clock/time-3.svg' alt=''>
@@ -120,3 +122,8 @@
 </body>
 
 </html>
+
+
+
+
+
