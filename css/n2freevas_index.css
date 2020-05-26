@@ -630,7 +630,7 @@ body{
     .app{
         font-size: 9px;
     }
-    .app img{
+    .app button, .app img{
         width:90px;
     }
     .title p{

@@ -16,7 +16,8 @@ window.onload = function(){
     this.scrollTo(0,0)
     if((ua.indexOf("android") !== -1) || (ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1)) {
         console.log('Adress bar infection is avoid.');
-        this.scrollTo(this.document.documentElement.clientWidth,this.document.documentElement.clientHeight)
+        // documentElement.client--　で，スマホの画面上下にあるアドレスバーを無視できる．
+        this.scrollTo(this.document.documentElement.clientWidth,this.document.documentElement.clientHeight+40)
     }
     else {
         console.log('Scrolling menu box')
