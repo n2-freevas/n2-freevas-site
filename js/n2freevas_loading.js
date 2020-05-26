@@ -14,14 +14,14 @@ window.onload = function(){
     
     //this.document.getElementById('menu_box').scrollIntoView(true)
     this.scrollTo(0,0)
-    /*if((ua.indexOf("android") !== -1) || (ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1)) {
+    if((ua.indexOf("android") !== -1) || (ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1)) {
         console.log('Adress bar infection is avoid.');
-        this.scrollTo(this.document.documentElement.innerWidth,this.document.documentElement.innerHeight)
+        this.scrollTo(this.document.documentElement.clientWidth,this.document.documentElement.clientHeight)
     }
-    else {*/
-    console.log('Scrolling menu box')
-    this.scrollTo(window.innerWidth,window.innerHeight)
-    
+    else {
+        console.log('Scrolling menu box')
+        this.scrollTo(window.innerWidth,window.innerHeight)
+    }
     
 
     this.setTimeout(

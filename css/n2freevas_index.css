@@ -155,8 +155,9 @@ body{
     position: absolute;
     top:100vh;
     left:0;
-    height:200vh;
-    width:100vw;}
+    height:100vh;
+    width:100vw;
+}
 
 .box{
     max-width:var(--max_width_val);
@@ -164,6 +165,12 @@ body{
     width: calc(100vw - (var(--margin_var) * 2));
     margin: var(--margin_var);
     position: absolute;}
+.leftbox{
+    max-width:calc(var(--max_width_val) + 200px);
+    height: 100vh;
+    width: 100vw;
+    
+}
 
 .border div{
     --borderwidth: 2px;
@@ -256,6 +263,7 @@ body{
     width:100%;
     font-size: 12px;
     font-weight: normal;
+    
 }
 
 .main button{
@@ -263,11 +271,13 @@ body{
 }
 .main img{
     width:100%;
+    margin-left:auto;
+    margin-right:auto;
 }
 .back{
     position: absolute;
-    bottom:3%;
-    right:3%;
+    bottom:20px;
+    right:20px;
 }
 .back img{
     width:100px;
@@ -300,7 +310,98 @@ body{
     font-size: 13px;
 }
 
+/* ==================  Create  ==================  */
 
+#creates{
+    --r_dash:10%;
+    --delta_Dx: calc(var(--r_dash) / 2);
+    position: absolute;
+    top:-20vh;
+    left:10%;
+    overflow-y: scroll;
+    max-width: 800px;
+    width:100%;
+    height:150vh;
+    transform:rotate(-8deg);
+    --webkit-transform:rotate(-10deg);
+}
+
+.create_window{
+    margin:20px;
+    --window_width:70%;
+    /*--window_height:calc(var(--window_width) / 3);*/
+    width:var(--window_width);
+    height:10%;
+    
+}
+.create_window img{
+    width:100%;
+    background-position: center;
+    background-size: cover;
+}
+/*
+.zone1{
+    top:calc(50% - (var(--window_height) /2));
+    left:calc(50% + var(--r_dash));
+    transform:rotate(0deg);
+    --webkit-transform:rotate(0deg);
+}
+.zone2{
+    top:0%;
+    left:0%;
+    transform:rotate(36deg);
+    --webkit-transform:rotate(36deg);
+}
+.zone3{
+    top:0%;
+    left:0%;
+    transform:rotate(72deg);
+    --webkit-transform:rotate(72deg);
+}
+.zone4{
+    top:0%;
+    left:0%;
+    transform:rotate(108deg);
+    --webkit-transform:rotate(108deg);
+}
+.zone5{
+    top:0%;
+    left:0%;
+    transform:rotate(144deg);
+    --webkit-transform:rotate(144deg);
+}
+.zone6{
+    top:0%;
+    left:0%;
+    transform:rotate(180deg);
+    --webkit-transform:rotate(180deg);
+}
+.zone7{
+    top:0%;
+    left:0%;
+    transform:rotate(216deg);
+    --webkit-transform:rotate(216deg);
+}
+.zone8{
+    top:0%;
+    left:0%;
+    transform:rotate(252deg);
+    --webkit-transform:rotate(252deg);
+}
+.zone9{
+    top:0%;
+    left:0%;
+    transform:rotate(288deg);
+    --webkit-transform:rotate(288deg);
+}
+.zone10{
+    top:0%;
+    left:0%;
+    transform:rotate(324deg);
+    --webkit-transform:rotate(324deg);
+}*/
+
+/* ==================  Clock  ==================  */
 .bg_clock{
     position: absolute;
     height: 100vh;

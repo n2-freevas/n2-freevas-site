@@ -1,9 +1,10 @@
-
-
+var creates = document.getElementById('creates');
+var creates_height = creates.clientHeight
+console.log(creates_height);
 // スクロール禁止
 function scrollEventManager() {
     // PCでのスクロール禁止
-    
+            
         document.addEventListener("wheel", scroll_control, { passive: false });
     
     // スマホでのタッチ操作でのスクロール禁止
@@ -20,11 +21,35 @@ function return_scroll() {
 
 // スクロール関連メソッド
 function scroll_control(event) {
+    event.preventDefault();
     console.log(event.wheelDelta);
+    if (event.wheelDelta > 0){
+        
+        creates.scrollTo(0,100);
+    }
+    else{
+        creates.scrollTo(0,0);
+    }
     //console.log(event.detail);
-    //event.preventDefault();
+    
     
 }
+
+//無限ループスクロール
+/* createゾーンのバナーの高さと，margin(20px)を設定に用いる */
+/*
+$(function(){
+    $(window).scrollTop(0,0);
+	var windowH = $('#creates').innerHeight();
+    $('#creates').scroll(function(){
+		var bodyH = $('#creates').height();
+        var scroll = Math.floor($(this).scrollTop());
+        var scrollAll = scroll + bodyH;
+        if( windowH <= scrollAll){
+        	$('#creates').scrollTop(0,0);
+        }
+    });
+});*/
 
 
 
@@ -51,11 +76,12 @@ function OnclickProfileButton(){
 
 function OnclickBlogButton(){
     console.log('Blog');
+    location.href = 'http://n2freevas.wp.xdomain.jp/'
 }
 
 function OnclickActivityButton(){
     console.log('Activity');
-    var element = document.getElementById('menu')
+    var element = document.getElementById('create')
     element.scrollIntoView({behavior:'smooth'})
 }
 
@@ -99,5 +125,4 @@ window.document.onkeydown = function(evt){
     return false;}
 }
 
-scrollEventManager()
-
+scrollEventManager();
