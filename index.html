@@ -10,20 +10,20 @@
 
   gtag('config', 'UA-155726262-1');
 </script>
-    
     <link rel="shortcut icon" href="./img/n2_favicon.png">
     <link rel="stylesheet" href = "./css/n2freevas_index.css">
     <link rel="stylesheet" href = "./css/n2freevas_reset.css">
+    <link rel='stylesheet' href = './css/n2freevas_create_vertical.css' id='createCSS'>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    
     <script src="./js/n2freevas_loading.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>N2_FreeVAS</title>
 </head>
 <body class = 'body_home'>
-
     <div id="loader">
         <div id="semipolar-spinner">
             <div class="ring"></div>
@@ -46,19 +46,18 @@
                     <p>What do you want to know<br>about me ?</p>
                     <div class= 'appcontainer'>
                         <div class='appbox'>
-                            <div class='app'><p>Profile</p><button type='button' onclick='OnclickProfileButton();'><img src='img/appmenu/profile_icon.svg' alt=''></button></div>
-                            <div class='app'><p>WEBlog</p><button type='button' onclick='OnclickBlogButton();'><img src='img/appmenu/blog_icon.svg' alt=''></button></div></div>
+                            <div class='app pr'><p>Profile</p><button type='button' onclick='OnclickProfileButton();'><img class='svg' src='img/appmenu/profile_icon.svg' alt=''></button></div>
+                            <div class='app bl'><p>WEBlog</p><button type='button' onclick='OnclickBlogButton();'><img src='img/appmenu/blog_icon.svg' alt=''></button></div></div>
                         <div class='appbox'>
-                            <div class='app'><p>Activity</p><button type='button' onclick='OnclickActivityButton();'><img src='img/appmenu/create_icon.svg' alt=''></button></div>
-                            <div class='app'><p>That article</p><button type='button' onclick='OnclickArticleButton();'><img src='img/appmenu/config_icon.svg' alt=''></button></div></div>
+                            <div class='app cr'><p>Create</p><button type='button' onclick='OnclickCreateButton();'><img src='img/appmenu/create_icon.svg' alt=''></button></div>
+                            <div class='app ar'><p>That artifact</p><button type='button' onclick='OnclickCArtifactButton();' ><img src='img/appmenu/config_icon.svg' alt=''></button></div></div>
                         <div class='appbox'>
-                            <div class='app'><p>Contact</p><button type='button' onclick='OnclickContactButton();'><img src='img/appmenu/contact_icon.svg' alt=''></button></div>
-                            <div class='app' style='visibility:hidden;'><p>Newcontent</p><button type='button'><img src='img/appmenu/contact_icon.svg' alt=' zone'></div></button></div></div></div></div></div>
+                            <div class='app ct'><p>Contact</p><button type='button' onclick='OnclickContactButton();'><img src='img/appmenu/contact_icon.svg' alt=''></button></div>
+                            <div class='app' style='visibility:hidden;'><p>None</p><button type='button'><img src='img/appmenu/contact_icon.svg'></div></button></div></div></div></div></div>
         <div id='profile'>
             <div class='box profbg'>
-            
-                <div class='profilemask zone'></div>
-                
+                <div class='blackmask'></div><div class='blackmask btm'></div><div class='redmask'></div><div class='redmask btm'></div>
+                <div class='profilemask'></div>
                 <div class='main' style='text-align:left;'>
                     <div class='title'>
                         <img src='img/n2_logo_white.svg'>
@@ -85,34 +84,53 @@
                         <p>and N2 Web Log :)</p>
                     </div>
                     <div class='back' style = ''>
-                        <div class='app'><button type='button' onclick='OnclickBackMenuButton();'><img src='img/back.svg' alt=''></button></div></div>
+                        <div class='app mini'><button type='button' onclick='OnclickBackMenuButton();'><img src='img/back.svg' alt=''></button></div></div>
                        
                     
                 </div>
             </div></div>
         <div id='create'>
-            <div class='leftbox'>
-                <div id ='creates'>
-                <div id = 'create10' class='zone' style='visibility:hidden;'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create10' class='zone' style='visibility:hidden;'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create1' class='zone1'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create2' class='zone2'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create3' class='zone3'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create4' class='zone4'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create5' class='zone5'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create6' class='zone6'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create7' class='zone7'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create8' class='zone8'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create9' class='zone9'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create10' class='zone' style='visibility:hidden;'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                    <div id = 'create10' class='zone' style='visibility:hidden;'><img class='create_window' src='img/create/create-1.png' alt=''></div>
-                </div>
+        
+            <div id ='portfolioscroll'>
+                <div id='top-left-band' class='band'></div>
+                <section class='zone'><div class='child c1'></div></section>
+                <section class='zone'><div class='child c2'></div></section>
+                <section class='zone'><div class='child c3'></div></section>
+                <section class='zone'><div class='child c1'></div></section>
+                <section class='zone'><div class='child c2'></div></section>
+                <section class='zone'><div class='child c3'></div></section>
+                <div id='bottom-right-band' class='band'></div>
+            <!--
+                <div class = 'create zone1'><img class='create_window' src='img/create/create-1.png' alt=''></div>
+                <div class = 'create zone2'><img class='create_window' src='img/create/create-2.png' alt=''></div>
+                <div class = 'create zone3'><img class='create_window' src='img/create/create-3.png' alt=''></div>
+                <div class = 'create zone4'><img class='create_window' src='img/create/IDKyouthink.png' alt=''></div>
+                <div class = 'create zone5'><img class='create_window' src='img/create/BB-1.png' alt=''></div>
+                <div class = 'create zone6'><img class='create_window' src='img/create/bittersmile.png' alt=''></div>
+                <div class = 'create zone7'><img class='create_window' src='img/create/nstest.png' alt=''></div>
+                <div class = 'create zone8'><img class='create_window' src='img/create/supporttool.png' alt=''></div>
+                <div class = 'create zone9'><img class='create_window' src='img/create/create-4.png' alt=''></div>
+                <div class = 'create zone10'><img class='create_window' src='img/create/create-5.png' alt=''></div>
+                <div class = 'create zone1'><img class='create_window' src='img/create/create-1.png' alt=''></div>
+                <div class = 'create zone2'><img class='create_window' src='img/create/create-2.png' alt=''></div>
+                <div class = 'create zone3'><img class='create_window' src='img/create/create-3.png' alt=''></div>
+                <div class = 'create zone4'><img class='create_window' src='img/create/IDKyouthink.png' alt=''></div>
+                <div class = 'create zone5'><img class='create_window' src='img/create/BB-1.png' alt=''></div>
+            -->
             </div>
-            <div class='back' style = 'position:absolute; bottom:20px; right:20px;z-index:50;'>
-                <div class='app' style='transform:rotate(-90deg);-webkit-transform:rotate(-90deg)'><button type='button' onclick='OnclickBackMenuButton();'><img src='img/back.svg' alt=''></button></div></div>
+                <div class='back' style = 'position:absolute; top:20px; left:20px;z-index:50;'>
+            <div class='app mini'><button type='button' onclick='OnclickBackMenuButton();'><img src='img/back.svg'style='heoght:60px;transform:rotate(90deg);-webkit-transform:rotate(90deg)' alt=''></button></div></div>
+        
         </div>
-        <div class='bg_clock'>
-            <div class='clockbody'>
+
+        <div id='contact'>
+            <div class='box'>
+            
+            </div>
+        
+        </div>
+        <div id='bg_clock'>
+            <div id='clockbody'>
                 <img class='time time-1' src='img/n2_clock/time-1.svg' alt=''>
                 <img class='time time-2' src='img/n2_clock/time-2.svg' alt=''>
                 <img class='time time-3' src='img/n2_clock/time-3.svg' alt=''>
@@ -130,9 +148,14 @@
             </div>
             
         </div>
+        <div id='red-background'>
+        </div>
+        <div id='black-background'>
+        </div>
 
         <script src="./js/n2freevas_index.js"></script>
         <script src="./js/n2freevas_fontConfig.js"></script>
+
     </div>
     
 </body>

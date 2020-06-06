@@ -13,11 +13,14 @@ body{
     margin: 0;
     background-color: var(--dark-main-color);
     text-decoration: none;
-    background-position: center;
     background-size: cover;
     position: relative;
+    transition: all 1s;
 }
 
+body.dark{
+    background-image: none;
+}
 #loader{
     position:fixed;
     top:0;
@@ -122,16 +125,13 @@ body{
     }}
 #first_logo.is_hide{
     display: none;}
-
 #contents{
     --max_width_val :600px;
     --margin_var:30px;
     --padding_var:20px;
     position: relative;
     width: calc(100vw * 3);
-    height: calc(100vh * 3);
-}
-
+    height: calc(100vh * 3);}
 #menu{
     position: absolute;
     height: 100vh;
@@ -139,7 +139,7 @@ body{
     top:100vh;
     left:100vw;}
 #menu_box{
-    max-width: var(--max_width_val);
+    max-width: 500px;
     height: calc(100vh - var(--margin_var) * 2);
     width: calc(100vw - var(--margin_var) * 2);
     margin: var(--margin_var);
@@ -154,14 +154,50 @@ body{
 #create{
     position: absolute;
     top:100vh;
-    left:0;
+    left:200vw;
     height:100vh;
     width:100vw;
 }
+#contact{
+    position: absolute;
+    top:200vh;
+    left:100vw;
+    height:100px;
+    width:100vw;
+    transition: all 0.7s;
+    background: rgba(169, 0, 0,0.5);
+    z-index:1000;
+}
+#contact.up{
+    top:calc(200vh - 100px);
+}
+#black-background{
+    position: absolute;
+    top:0;
+    left:0;
+    height:300vh;
+    width:300vw;
+    background: var(--dark-main-color);
+    z-index:-50;
+    opacity:0;
+    transition: all 0.5s 0.2s;
+}
+#black-background.opacityMax{
+    opacity:1;
+}
+#red-background{
+    position: absolute;
+    top:0;
+    left:0;
+    height:200vh;
+    width:200vw;
+    z-index:-100;
+}
+
 
 .box{
     max-width:var(--max_width_val);
-    height: calc(100vh - (var(--margin_var) * 2));
+    height: calc(100% - (var(--margin_var) * 2));
     width: calc(100vw - (var(--margin_var) * 2));
     margin: var(--margin_var);
     position: absolute;}
@@ -169,7 +205,6 @@ body{
     max-width:calc(var(--max_width_val) + 200px);
     height: 100vh;
     width: 100vw;
-    
 }
 
 .border div{
@@ -204,6 +239,19 @@ body{
     height: 100%;
     width:100%;
 }
+.blackmask,.redmask{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    transition: all 1s;
+}
+.blackmask.btm, .redmask.btm{top: unset;left:unset;bottom:0;right:0;}
+.redmask{background:var(--main-color);}
+.blackmask.slideup,.blackmask.btm.slideup{height:0;}
+.redmask.slideleft,.redmask.btm.slideup{width:0;}
 .profilemask{
     --dotssize:5px;
     --mesh_dots:#444;
@@ -218,15 +266,15 @@ body{
     height: 100%;
     width:100%;}
 
-.body_home_bg1{
+.red_bg1{
     background-image: url(../img/op/bg/bg1.png);}
-.body_home_bg2{
+.red_bg2{
     background-image: url(../img/op/bg/bg2.png);}
-.body_home_bg3{
+.red_bg3{
     background-image: url(../img/op/bg/bg3.png);}
-.body_home_bg4{
+.red_bg4{
     background-image: url(../img/op/bg/bg4.png);}
-.body_home_bg5{
+.red_bg5{
     background-image: url(../img/op/bg/bg5.png);}
 .profbg{
     background-position: top;
@@ -263,16 +311,20 @@ body{
     width:100%;
     font-size: 12px;
     font-weight: normal;
-    
 }
 
 .main button{
     width:50%;
+   
 }
 .main img{
     width:100%;
     margin-left:auto;
     margin-right:auto;
+    transition: all 0.3s;
+}
+.main img:hover{
+    width:110%;
 }
 .back{
     position: absolute;
@@ -304,6 +356,11 @@ body{
     margin:10px 0 20px 0;
     padding:5px 5px 10px 5px;
     font-size: 15px;
+    transition: all 1s;
+    opacity:0;
+}
+.profilecontent.fadein{
+    opacity: 1;
 }
 .Prof{
     padding:10px 0 10px 0;
@@ -312,104 +369,43 @@ body{
 
 /* ==================  Create  ==================  */
 
-#creates{
-    --r_dash:10%;
-    --delta_Dx: calc(var(--r_dash) / 2);
-    position: absolute;
-    top:-20vh;
-    left:10%;
+#portfolioscroll{
+    widows: 100%;
+    height:100%;
     overflow-y: scroll;
-    max-width: 800px;
-    width:100%;
-    height:150vh;
-    transform:rotate(-8deg);
-    --webkit-transform:rotate(-10deg);
+
+}
+#portfolioscroll section{
+    height:100%;
+
+
 }
 
-.create_window{
-    margin:20px;
-    --window_width:70%;
-    /*--window_height:calc(var(--window_width) / 3);*/
-    width:var(--window_width);
-    height:10%;
-    
-}
-.create_window img{
-    width:100%;
-    background-position: center;
-    background-size: cover;
-}
-/*
-.zone1{
-    top:calc(50% - (var(--window_height) /2));
-    left:calc(50% + var(--r_dash));
-    transform:rotate(0deg);
-    --webkit-transform:rotate(0deg);
-}
-.zone2{
-    top:0%;
-    left:0%;
-    transform:rotate(36deg);
-    --webkit-transform:rotate(36deg);
-}
-.zone3{
-    top:0%;
-    left:0%;
-    transform:rotate(72deg);
-    --webkit-transform:rotate(72deg);
-}
-.zone4{
-    top:0%;
-    left:0%;
-    transform:rotate(108deg);
-    --webkit-transform:rotate(108deg);
-}
-.zone5{
-    top:0%;
-    left:0%;
-    transform:rotate(144deg);
-    --webkit-transform:rotate(144deg);
-}
-.zone6{
-    top:0%;
-    left:0%;
-    transform:rotate(180deg);
-    --webkit-transform:rotate(180deg);
-}
-.zone7{
-    top:0%;
-    left:0%;
-    transform:rotate(216deg);
-    --webkit-transform:rotate(216deg);
-}
-.zone8{
-    top:0%;
-    left:0%;
-    transform:rotate(252deg);
-    --webkit-transform:rotate(252deg);
-}
-.zone9{
-    top:0%;
-    left:0%;
-    transform:rotate(288deg);
-    --webkit-transform:rotate(288deg);
-}
-.zone10{
-    top:0%;
-    left:0%;
-    transform:rotate(324deg);
-    --webkit-transform:rotate(324deg);
-}*/
+
+
+::-webkit-scrollbar{display: none;}
+::scrollbar{display:none;}
+
+#zone1{background: url(../img/create/create-1.png) no-repeat;}
+#zone2{background: url(../img/create/create-2.png) no-repeat;}
+#zone3{background: url(../img/create/create-3.png) no-repeat;}
+#zone4{background: url(../img/create/create-4.png) no-repeat;}
+#zone5{background: url(../img/create/create-5.png) no-repeat;}
+#zone6{background: url(../img/create/bittersmile.png) no-repeat;}
+#zone7{background: url(../img/create/IDKyouthink.png) no-repeat;}
+#zone8{background: url(../img/create/nstest.png) no-repeat;}
+#zone9{background: url(../img/create/supporttool.png) no-repeat;}
+#zone10{background: url(../img/create/BB-1.png) no-repeat;}
 
 /* ==================  Clock  ==================  */
-.bg_clock{
+#bg_clock{
     position: absolute;
     height: 100vh;
     width:100vw;
     top:100vh;
     left:100vw;
     z-index: -1;}
-.bg_clock .clockbody{
+#bg_clock #clockbody{
     position: absolute;
     top:40vh;
     left:25vw;
@@ -417,13 +413,23 @@ body{
     height:120vw;
     -webkit-animation: clockrotate 60s cubic-bezier(1,0,.95,.38) infinite;
     animation: clockrotate 60s cubic-bezier(1,0,.95,.38) infinite;}
-.bg_clock .spin{
+#bg_clock #clockbody.spin{
     -webkit-animation: clockspin 1s;
     animation: clockspin 1s;
 }
+#bg_clock #clockbody.slideleft{
+    -webkit-animation: clockslide ease-out 1.5s;
+    animation: clockslide ease-out 1.5s;
+}
 
+@keyframes clockslide{
+    0%{left:25vw;transform:rotate(0deg);}
+    100%{left:-100%;transform:rotate(-270deg);}}
+@-webkit-keyframes clockslide{
+    0%{left:25vw;-webkit-transform:rotate(0deg);}
+    100%{left:-100%;-webkit-transform:rotate(-270deg);}}
 
-.bg_clock .clockbody img{
+#bg_clock #clockbody img{
     width:100%;}
 @keyframes clockrotate{
     0%{transform:rotate(0deg);}
@@ -536,14 +542,14 @@ body{
     0%{-webkit-transform:rotate(0deg);}
     100%{-webkit-transform:rotate(720deg);}}
 
-.bg_clock img.time{
+#bg_clock #clockbody img.time{
     position: absolute;
     width:10%;
     animation: wheelrotate 10s linear infinite;
     -webkit-animation: wheelrotate 10s linear infinite;
 }
 
-.bg_clock img.insidewheel{
+#bg_clock #clockbody img.insidewheel{
     position: absolute;
     width:25%;
     animation: wheelrotate 28s linear infinite reverse;
@@ -565,12 +571,12 @@ body{
 .time-5{top:61.021%;left:54.25%;}
 .time-4{top:54.25%;left:61.021%;}
 
-.bg_clock img.time-2,
-.bg_clock img.time-4,
-.bg_clock img.time-6,
-.bg_clock img.time-8,
-.bg_clock img.time-10,
-.bg_clock img.time-12{
+#bg_clock img.time-2,
+#bg_clock img.time-4,
+#bg_clock img.time-6,
+#bg_clock img.time-8,
+#bg_clock img.time-10,
+#bg_clock img.time-12{
     
     animation-direction: reverse;
     -webkit-animation-direction: reverse;
@@ -584,42 +590,54 @@ body{
     0%{-webkit-transform:rotate(0deg);}
     100%{-webkit-transform:rotate(360deg);}
 }
-@media screen and (max-height:700px){
-    .app img{
-        width:90px;
+
+@media screen and (min-width: 600px){
+    #menu_box{
+        margin-left: calc((100vw - 500px) /2);
+        margin-right: calc((100vw - 500px) /2);
     }
 }
 @media screen and (min-width: 700px){
 
-    #menu_box{
-        margin-left: calc((100vw - 600px) /2);
-        margin-right: calc((100vw - 600px) /2);
-    }
+    
     .box{
         margin-left: calc((100vw - 600px) /2);
         margin-right: calc((100vw - 600px) /2);
     }
 
-    .bg_clock .clockbody{
+    #bg_clock #clockbody{
         top:35vh;
         left:50vw;
         height:850px;
         width:850px;
     }
 
-    .bg_clock .clockbody img{
+    #bg_clock #clockbody img{
         
         width:850px;
     }
 
-    .bg_clock img.insidewheel{
+    #bg_clock img.insidewheel{
         width:212.5px;
     }
-    .bg_clock img.time{
+    #bg_clock img.time{
         width:85px;
     }
-
 }
+@media screen and (max-height:700px){
+    .app img{
+        width:90px;
+    }
+    .main img:hover{
+        width:100px;
+    }
+    .app.mini img{
+        width:60px;
+    }
+
+    
+}
+
 @media screen and (max-width:400px){
     .main{
         font-size: 12px;
@@ -630,7 +648,7 @@ body{
     .app{
         font-size: 9px;
     }
-    .app button, .app img{
+    .app button,.app button img{
         width:90px;
     }
     .title p{
@@ -641,5 +659,8 @@ body{
     }
     .Prof{
         font-size: 8px;
+    }
+    .create_window{
+        width: 100%;
     }
 }
