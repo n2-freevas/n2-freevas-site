@@ -47,5 +47,5 @@ do{
 
 var ageid = document.getElementById('age');
 var passtimeid = document.getElementById('passtime');
-ageid.insertAdjacentHTML('afterbegin','Age : '+age+' ')
-passtimeid.insertAdjacentHTML('afterbegin',' ( + ' + day +'[day] + '+ passtime+ '[sec])')
+ageid.insertAdjacentHTML('afterbegin','Age:'+age)
+passtimeid.insertAdjacentHTML('afterbegin',' (+' + day +'[day]+'+ passtime+ '[sec])')

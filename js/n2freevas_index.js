@@ -1,13 +1,22 @@
-var nowContent = 'menu';
-var nextContent = '';
-var menu_box = document.getElementById('menu_box');
-var black_bg = document.getElementById('black-background');
-var contactbox = document.getElementById('contact');
-var bg_clock = document.getElementById('bg_clock');
-var clockbody = document.getElementById('clockbody');
-var profilecontents = document.getElementsByClassName('profilecontent');
-var blackmask = document.getElementsByClassName('blackmask');
-var redmask = document.getElementsByClassName('redmask');
+const menu_box = document.getElementById('menu_box');
+const black_bg = document.getElementById('black-background');
+const bg_clock = document.getElementById('bg_clock');
+const times = document.getElementsByClassName('time');
+const insidewheel = document.getElementById('insidewheel')
+const clockbody = document.getElementById('clockbody');
+const profilecontents = document.getElementsByClassName('profilecontent');
+const blackmask = document.getElementsByClassName('blackmask');
+const redmask = document.getElementsByClassName('redmask');
+const menu = document.getElementById('menu');
+const profile = document.getElementById('profile');
+const create = document.getElementById('create');
+const contact = document.getElementById('contact');
+const contact_bg = document.getElementById('contact_bg');
+const window_mask = document.getElementById('window_mask');
+const mask = document.getElementById('mask');
+
+var nowContent = menu
+var nextContent = null;
 
 //スクロールステータス
 var speed = 1; //スピード
@@ -16,6 +25,8 @@ var upscroll = true /* true: 上へ移動するor左へ移動する   /  false: 
 var index = 0;
 var scrollarraylen = 0;
 var scrollarray = new Array();
+var processing = false;
+
 /*
     ブラウザ判定プロトコル
 */
@@ -30,50 +41,6 @@ else if(userAgent.indexOf('opera') !== -1){userBrowser = 'opera';}
 else if(userAgent.indexOf('safari') !== -1){userBrowser = 'safari';}
 else{userBrowser = 'unknown';}
 console.log('this Browser is '+userBrowser)
-/*
-    Createギャラリーの高度なスクロール制御プロトコル
-*/
-now_scroll_position = 0;
-wheel_agent = 10;
-const creates = document.getElementById('portfolioscroll');
-var scroll_margin = creates.scrollHeight - creates.clientHeight;
-
-window.addEventListener('resize', function(){
-    scroll_margin = creates.scrollHeight - creates.clientHeight;
-    this.window.scrollTo 
-});
-
-
-// スクロール禁止
-function scrollEventManager() {
-    // スマホでのタッチ操作でのスクロール禁止
-    document.addEventListener("touchmove", scroll_control, { passive: false });
-    // PCでのスクロール禁止
-    document.addEventListener("wheel", scroll_control, { passive: false });
-}
-
-// スクロール関連メソッド
-function scroll_control(event){
-    event.preventDefault();
-    
-    let wheel = (-1) * event.wheelDelta;
-    now_scroll_position += parseInt(wheel/wheel_agent);
-
-    
-    creates.scrollTo(0,now_scroll_position);
-    console.log($('#portfolioscroll').scrollTop(),now_scroll_position)
-    
-    if(now_scroll_position > scroll_margin){
-        console.log('if');
-        $('#portfolioscroll').scrollTop(1);
-        now_scroll_position = 1;
-    }
-    else if(now_scroll_position < 0){
-        console.log('else');
-        $('#portfolioscroll').scrollTop(creates.scrollHeight - 1);
-        now_scroll_position = creates.scrollHeight - 1;
-    }
-}
 
 /* 
     背景ランダム配置
@@ -83,142 +50,59 @@ $(function(){
     $('#red-background').addClass('red_bg'+num);
 });
 
-/*
-    各ページへ遷移する自動スクロール制御プロトコル
-*/
-
-
-
-
-
-function movetoContent(from,to){ 
-    console.log(from,to)
-    if ((userBrowser === 'chrome')||(userBrowser === 'firefox')||(userBrowser === 'opera')){
-        console.log('scrollIntoView can use');
-        var element = document.getElementById(to);
-        element.scrollIntoView({behavior:'smooth'});
-    }
-    else{
-        console.log('scrollIntoView cannot use. Alternative scroll function launch.');
-        /* set direction to move using FROM and TO imformaiton  */
-        console.log(window.pageXOffset,window.pageYOffset)
-        if(from === 'menu'){
-            if(to ==='profile'){
-                upscroll = false;
-                scrollControllerMake(window.innerHeight,0)
-                scroll_y();
-            }
-            else if(to === 'create'){
-                upscroll = true;
-                scrollControllerMake( window.innerWidth,window.innerWidth*2)
-                scroll_x();
-            }
-        }
-        else if(from === 'profile'){
-            upscroll = true;
-            scrollControllerMake(0,window.innerHeight)
-            scroll_y();
-        }
-        else if(from === 'create'){
-            upscroll = false;
-            scrollControllerMake( window.innerWidth*2,window.innerWidth )
-            scroll_x();
-        }
-    }
-    nowContent = nextContent;
-};
-
-function scrollControllerMake(d,target){
-    var scrollController = new Array();
-    const dx = 0.03;
-    for(let i = 0;true ; i++){
-        value = Math.ceil(Math.exp(-1*dx*i)*move);
-        if(upscroll){
-            d += value;
-            if (d > target){
-                scrollController.push(Math.abs(d-target));
-                break;
-            }
-            scrollController.push(value);
-        }
-        else{
-            d -= value;
-            if (d < target){
-                scrollController.push(-1*Math.abs(d-target));
-                break;
-            }
-            scrollController.push(-1*value);
-        }
-    }
-    arraylen = scrollController.length
-    scrollarray =  scrollController;
-}
-
-function scroll_x(){
-    window.scrollBy(scrollarray[index],0); // スクロール処理
-    index += 1;
-	var rep = setTimeout("scroll_x()", speed);
-	if(index == arraylen ){ // スクロールし終わっていたら処理を終了
-        index = 0;
-        clearTimeout(rep);
-	}
-};
-function scroll_y(){
-    window.scrollBy(0, scrollarray[index]); // スクロール処理
-    index += 1;
-	var rep = setTimeout("scroll_y()", speed);
-	if(index == arraylen ){ // スクロールし終わっていたら処理を終了
-        index = 0;
-        clearTimeout(rep);
-	}
-}
 //アプリケーションボタン関連イベント
 function OnclickProfileButton(){
-    nextContent = 'profile';
+    processing = true;
+    nextContent = profile;
     ClockQuickSpin();
     menu_box.classList.remove('active');
     
     window.setTimeout(function(){
-        movetoContent(nowContent,nextContent);
-    },700);
+        contents_vert_down();
+    },600);
 
     for( let i = 0; i < profilecontents.length; i++){
         window.setTimeout(() => {
             profilecontents[i].classList.add('fadein');
-        }, 1200+i*200);
+        }, 1800+i*500);
     }
     for(let i = 0; i<blackmask.length; i++)
     window.setTimeout(()=>{
         blackmask[i].classList.add('slideup');
         redmask[i].classList.add('slideleft');
-    },1000);
+    },1200);
+    
 }
 
 function OnclickCreateButton(){
-    nextContent = 'create';
+    nextContent = create;
     ClockSlide();
     black_bg.classList.add('opacityMax');
     menu_box.classList.remove('active');
-    window.setTimeout(function(){
-        movetoContent(nowContent,nextContent);
-    },700);
+    window.setTimeout(()=>{
+        window_mask.classList.add('slidein');
+    },500)
+    window.setTimeout(()=>{
+        contents_hori_left();
+    },1000);
 }
 function OnclickBlogButton(){
-    console.log('Blog');
     window.open('http://n2-freevas-blog.deca.jp/');
 }
+/*
 function OnclickArtifacteButton(){
-    nextContent = 'artifact';
-}
+    nextContent = artifact;
+}*/
 
 function OnclickContactButton(){
-    console.log('Contact');
-    contactbox.classList.toggle('up');
-
+    contact.classList.toggle('contact_up');
+    contact_bg.classList.toggle('popup');
 }
 function OnclickBackMenuButton(){
-    if (nowContent === 'profile'){
+    nextContent = menu;
+    if (nowContent === profile){
         ClockQuickSpin();
+        contents_vert_up();
         for( let i = 0; i < profilecontents.length; i++){
             profilecontents[i].classList.remove('fadein');
         }
@@ -226,23 +110,83 @@ function OnclickBackMenuButton(){
             blackmask[i].classList.remove('slideup');
             redmask[i].classList.remove('slideleft');
         }
+        // border reborn
+        window.setTimeout(function(){menu_box.classList.add('active');},800);
     }
-    else if (nowContent === 'create'){
+    else if (nowContent === create){
+        black_bg.classList.remove('opacityMax');
         ClockSlide();
+        contents_hori_right();
+        window.setTimeout(()=>{window_mask.classList.remove('slidein');},900)
+        // border reborn
+        window.setTimeout(function(){menu_box.classList.add('active');},1200);
     }
-    nextContent = 'menu';
-    movetoContent(nowContent,nextContent);
-    black_bg.classList.remove('opacityMax');
-    window.setTimeout(function(){
-        menu_box.classList.add('active');
-    },500);
+    
+
+    
 }
 
 
+function contents_vert_up(){
+    nowContent.classList.add('top'); //now
+    window.setTimeout(()=>{
+        nextContent.classList.remove('bottom'); //next
+    },400);
+    state_reset();
+}
+    
+function contents_vert_down(){
+    nowContent.classList.add('bottom'); //now
+    window.setTimeout(()=>{
+        nextContent.classList.remove('top'); //next
+    },400);
+    state_reset();
+};
+function contents_hori_left(){
+    nowContent.classList.add('left'); //now
+    window.setTimeout(()=>{
+        nextContent.classList.remove('right'); //next
+    },500);
+    state_reset();
+};
+function contents_hori_right(){
+    nowContent.classList.add('right'); //now
+    window.setTimeout(()=>{
+        nextContent.classList.remove('left'); //next
+    },500);
+    state_reset();
+};
 
-function ClockQuickSpin(){clockbody.classList.toggle('spin')}
+function state_reset(){
+    nowContent = nextContent;
+};
+
+function ClockQuickSpin(){
+    if(nowContent === menu){
+        insidewheel.classList.toggle('spin');
+        for(let i=0; i< times.length;i++){
+            window.setTimeout(()=>{
+                times[i].classList.toggle('spin');
+            },200+i*50);
+        };
+        window.setTimeout(()=>{
+            clockbody.classList.toggle('spin');
+        },400);
+    }
+    else{
+        insidewheel.classList.toggle('spin');
+        for(let i=0; i< times.length;i++){
+            window.setTimeout(()=>{
+                times[i].classList.toggle('spin');
+            },500+i*200);
+        };
+        window.setTimeout(()=>{
+            clockbody.classList.toggle('spin');
+        },1500);
+    }
+}
+    
+    
 function ClockSlide(){clockbody.classList.toggle('slideleft')}
 //矢印キーのイベントを制御
-//window.document.onkeydown = function(evt){if ((evt.which == 37)||(evt.which == 38)||(evt.which == 39)||(evt.which == 40)){ evt.which = null;return false;}}
-
-//scrollEventManager();
+window.document.onkeydown = function(evt){if ((evt.which == 37)||(evt.which == 38)||(evt.which == 39)||(evt.which == 40)){ evt.which = null;return false;}}

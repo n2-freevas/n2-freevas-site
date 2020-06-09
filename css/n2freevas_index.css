@@ -6,10 +6,10 @@
     --accent-color: #FBC02D;
     --dark-main-color: #000000;
 }
+
 body{
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "sans-serif";
     letter-spacing: 1px;
-    color: var(--white);
     margin: 0;
     background-color: var(--dark-main-color);
     text-decoration: none;
@@ -102,82 +102,85 @@ body.dark{
     vertical-align: middle;
     opacity:1;
     transition: all 1s 0.5s;}
-#first_bg.fadeout{
-    opacity:0;}
-#first_bg.is_hide{
-    display: none;}
-#first_logo{
-    opacity:0;
-    height:100px;
-    margin-top: 40vh;
-    transition: all 1.5s;}
-#first_logo.fadein{
-    opacity:1;}
-#first_logo.shrink{
-    animation: shrink_logo  ease-out 0.5s forwards}
-@keyframes shrink_logo{
-    0%{
-        height:100px;
-    }
-    100%{
-        height:0px;
-        margin-top:45vh;
-    }}
-#first_logo.is_hide{
-    display: none;}
+#first_bg.fadeout{opacity:0;}
+#first_bg.is_hide{display: none;}
+#first_logo{opacity:0;height:100px;margin-top: 40vh;transition: all 1.5s;}
+#first_logo.fadein{opacity:1;}
+#first_logo.shrink{animation: shrink_logo  ease-out 0.5s forwards}
+@keyframes shrink_logo{0%{height:100px;}100%{height:0px;margin-top:45vh;}}
+#first_logo.is_hide{display: none;}
+
 #contents{
     --max_width_val :600px;
     --margin_var:30px;
     --padding_var:20px;
     position: relative;
-    width: calc(100vw * 3);
-    height: calc(100vh * 3);}
-#menu{
-    position: absolute;
-    height: 100vh;
     width: 100vw;
-    top:100vh;
-    left:100vw;}
+    height:100vh;
+    overflow: hidden;}
+.content{
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;}
+.content.top{
+    top:-100%;
+    left:0;}
+.content.bottom{
+    top:100%;
+    left:0%;}
+.content.left{
+    top:0;
+    left:-100%;}
+.content.right{
+    top:0%;
+    left:100%;}
+
+#create{
+    z-index:5000;
+}
+#contact{
+    position: fixed;
+    top:100%;
+    left:0%;
+    color:white;
+    --contact_height:150px;
+    height:var(--contact_height);
+    width:100%;
+    border-radius: 50% 50% 0 0 /20% 20% 0 0;
+    transition: all 0.7s;
+    background: rgba(169, 0, 0,0.5);
+    z-index:1000;
+}
+#create_detail{
+    z-index:6000;
+    height:100vh;
+    width:100vw;
+    display: flex;
+}
+
+#contact.contact_up{top:calc(100vh - var(--contact_height) + 5px);}
+
 #menu_box{
+    color:white;
     max-width: 500px;
     height: calc(100vh - var(--margin_var) * 2);
     width: calc(100vw - var(--margin_var) * 2);
     margin: var(--margin_var);
     position: absolute;}
 #profile{
-    position: absolute;
-    height:100vh;
-    width:100vw;
-    top:0;
-    left:100vw;
-    }
-#create{
-    position: absolute;
-    top:100vh;
-    left:200vw;
-    height:100vh;
-    width:100vw;
-}
-#contact{
-    position: absolute;
-    top:200vh;
-    left:100vw;
-    height:100px;
-    width:100vw;
-    transition: all 0.7s;
-    background: rgba(169, 0, 0,0.5);
-    z-index:1000;
-}
-#contact.up{
-    top:calc(200vh - 100px);
+    color:white;
 }
 #black-background{
     position: absolute;
     top:0;
     left:0;
-    height:300vh;
-    width:300vw;
-    background: var(--dark-main-color);
+    height:100%;
+    width:100%;
+    background: white;
     z-index:-50;
     opacity:0;
     transition: all 0.5s 0.2s;
@@ -189,9 +192,11 @@ body.dark{
     position: absolute;
     top:0;
     left:0;
-    height:200vh;
-    width:200vw;
+    height:100%;
+    width:100%;
     z-index:-100;
+    background-position: bottom;
+    background-size: cover;
 }
 
 
@@ -225,7 +230,7 @@ body.dark{
 .active .border div.borderR{height:100%;}
 .active .border div.borderL{height:100%;}
 
-.mask{
+#mask{
     --dotssize:3px;
     --mesh_dots:#444;
     --mesh_bg:var(--dark-main-color);
@@ -257,7 +262,7 @@ body.dark{
     --mesh_dots:#444;
     --mesh_bg:var(--dark-main-color);
     background-color: var(--mesh_bg);
-    opacity:0.7;
+    opacity:0.8;
     /*dotsの設定*/
     background-image: radial-gradient(var(--mesh_dots) 20%, transparent 0), radial-gradient(var(--mesh_dots) 20%, transparent 0)
         ,radial-gradient(var(--mesh_dots) 20%, transparent 0),radial-gradient(var(--mesh_dots) 20%, transparent 0);
@@ -328,18 +333,24 @@ body.dark{
 }
 .back{
     position: absolute;
+    z-index:300;
+    height:70px;
     bottom:20px;
     right:20px;
 }
-.back img{
-    width:100px;
+.back .app img{
+    width:70px;
+    transition: all 0.5s;
+}
+.back .app img:hover{
+    width:80px;
 }
 .title{
     margin: 0 0 10px 0;
+    height:10%;
 }
 
 .title p{
-    
     font-size: 25px;
     vertical-align:middle;
     display: inline-block;
@@ -349,6 +360,12 @@ body.dark{
     vertical-align:middle;
     display: inline-block;
     width:7%;
+}
+.profcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height:75%;
 }
 .profilecontent{
     border-radius: 10px 0 100px 0 / 5px 0 20px 0;
@@ -370,40 +387,257 @@ body.dark{
 /* ==================  Create  ==================  */
 
 #portfolioscroll{
-    widows: 100%;
-    height:100%;
+    position: absolute;
     overflow-y: scroll;
-
 }
 #portfolioscroll section{
     height:100%;
+    
+}
+.child{
+    width:100%;
+    height:100%;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.3s;
+}
 
+.child.fil{
+    -webkit-filter: blur(7px)　grayscale(100%);
+    filter: blur(7px) grayscale(100%);
+}
 
+.c1{
+    
+    background-image:url(../img/create/logos.png);
+}
+.c2{
+    background-image:url(../img/create/createourfes.png);
+}
+.c3{
+    background-image:url(../img/create/okini.png);
+}
+.c4{
+    background-image:url(../img/create/supporttool.png);
+}
+.c5{
+    background-image:url(../img/create/myself.png);
 }
 
 
+#portfolioscroll::-webkit-scrollbar{display: none;}
+#portfolioscroll::scrollbar{display:none;}
 
-::-webkit-scrollbar{display: none;}
-::scrollbar{display:none;}
 
-#zone1{background: url(../img/create/create-1.png) no-repeat;}
-#zone2{background: url(../img/create/create-2.png) no-repeat;}
-#zone3{background: url(../img/create/create-3.png) no-repeat;}
-#zone4{background: url(../img/create/create-4.png) no-repeat;}
-#zone5{background: url(../img/create/create-5.png) no-repeat;}
-#zone6{background: url(../img/create/bittersmile.png) no-repeat;}
-#zone7{background: url(../img/create/IDKyouthink.png) no-repeat;}
-#zone8{background: url(../img/create/nstest.png) no-repeat;}
-#zone9{background: url(../img/create/supporttool.png) no-repeat;}
-#zone10{background: url(../img/create/BB-1.png) no-repeat;}
+/* =============== Create_detail ================ */
+
+.left{
+    position: relative;
+    font-family: 'Libre Caslon Display', serif;
+    color:var(--white);
+    font-size: 30px;
+    width:10vw;
+    height:100vh;
+    background: var(--dark-main-color);
+}
+#detail_back{
+    position: absolute;
+    top:10px;
+    left:10%;
+    width:80%;
+}
+#detail_back img{width:100%;}
+.left p{
+    position:absolute;
+    top:95vh;
+    left:0px;
+    height:10vw;
+    width:80vh;
+    line-height: 10vw;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin: top left;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    
+}
+.center{
+    position: relative;
+    width:40vw;
+    height:100vh;
+    background: var(--white);
+    text-align: center;
+    font-size:16px;
+}
+.center .cd_text{
+    position: absolute;
+    color:black;
+    top:50%;
+    left:0;
+    opacity:0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.center .cd_text.show{
+    opacity:1;
+}
+.center .cd_text p{
+    transition: all 0.5s;
+    margin: 50px 10px 50px 10px;
+}
+
+.right{
+    position: absolute;
+    top:0;
+    right:0;
+    width:50vw;
+    height:100vh;
+    overflow-y: scroll;
+    background: black;
+}
+.right.closeup{
+    width:90vw;
+}
+.right .createbox{
+    height:75vh;
+    width:100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: filter 0.5s;
+}
+.createbox.start{
+    height:75vh;
+    background: blue;
+}
+.createbox.finish{
+    height:100vh;
+    background: red;
+}
+.createbox img{
+    margin: 5vh 0 15vh 0;
+    max-width: 400px;
+    width:75%;
+}
+.createbox.fil img{
+    filter: blur(3px) grayscale(100%);
+}
+
+#detail_mask{
+    position: absolute;
+    z-index:6001;
+    height:100vh;
+    width:100vw;
+    top:100vh;
+    left:0;
+    background:white;
+    -webkit-transition:all 0.5s;
+    transition:all 0.5s;
+}
+#detail_mask.slide{top:0;}
+#detail_mask.shrink{height:0;}
+#detail_mask2{
+    position: absolute;
+    z-index:6002;
+    height:100vh;
+    width:100vw;
+    top:100vh;
+    left:0;
+    background:black;
+    -webkit-transition:all 0.5s 0.3s;
+    transition:all 0.5s 0.3s;
+}
+#detail_mask2.slide{top:0;}
+#detail_mask2.shrink{height:0;}
+
+
+/* =====================  contact =====================    */
+.contact_icon{
+    position: absolute;
+    z-index:800;
+    --contact_icon_width:40px;
+    --contact_icon_height:40px;
+    width: var(--contact_icon_width);
+    height: var(--contact_icon_height);
+    text-align: center;
+    border: solid 2px currentColor;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+.contact_icon:hover{
+    border-width: 5px;
+}
+
+.contact_icon a{
+    position: absolute;
+    font-size: 25px;
+    text-decoration: none;
+    width: 100%;
+    height:100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color:inherit;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+.contact_icon:nth-child(1){
+    top: 30px;
+    left:0;
+}
+.contact_icon:nth-child(2){
+    top: 10px;
+    left: calc(25% - (var(--contact_icon_width) / 3));
+}
+.contact_icon:nth-child(3){
+    top:0;
+    left: calc(50% - (var(--contact_icon_width) / 2));
+}
+.contact_icon:nth-child(4){
+    top: 10px;
+    right: calc(25% - (var(--contact_icon_width) / 3));
+}
+.contact_icon:nth-child(5){
+    top: 30px;
+    right:0;
+}
+#contact_bg{
+    position: absolute;
+    z-index:799;
+    top:100%;left:0;
+    width:100vw;
+    height:100vh;
+    background: var(--dark-main-color);
+    opacity: 0;
+    transition: 1s;
+}
+
+#contact_bg.popup{
+    top:0%;
+    opacity:0.8;
+}
+#window_mask{
+    position: absolute;
+    z-index:4000;
+    top:0;right:0;
+    width:0;
+    height:100vh;
+    background: var(--white);
+    opacity: 0.8;
+    transition: 0.5s;
+}
+#window_mask.slidein{
+    width:100vw;
+}
 
 /* ==================  Clock  ==================  */
 #bg_clock{
     position: absolute;
-    height: 100vh;
-    width:100vw;
-    top:100vh;
-    left:100vw;
+    height: 100%;
+    width:100%;
+    top:0;
+    left:0;
     z-index: -1;}
 #bg_clock #clockbody{
     position: absolute;
@@ -413,21 +647,18 @@ body.dark{
     height:120vw;
     -webkit-animation: clockrotate 60s cubic-bezier(1,0,.95,.38) infinite;
     animation: clockrotate 60s cubic-bezier(1,0,.95,.38) infinite;}
-#bg_clock #clockbody.spin{
-    -webkit-animation: clockspin 1s;
-    animation: clockspin 1s;
-}
+
 #bg_clock #clockbody.slideleft{
-    -webkit-animation: clockslide ease-out 1.5s;
-    animation: clockslide ease-out 1.5s;
+    -webkit-animation: clockslide ease-out 4s;
+    animation: clockslide ease-out 4s;
 }
 
 @keyframes clockslide{
     0%{left:25vw;transform:rotate(0deg);}
-    100%{left:-100%;transform:rotate(-270deg);}}
+    100%{left:-200%;transform:rotate(-270deg);}}
 @-webkit-keyframes clockslide{
     0%{left:25vw;-webkit-transform:rotate(0deg);}
-    100%{left:-100%;-webkit-transform:rotate(-270deg);}}
+    100%{left:-200%;-webkit-transform:rotate(-270deg);}}
 
 #bg_clock #clockbody img{
     width:100%;}
@@ -549,14 +780,17 @@ body.dark{
     -webkit-animation: wheelrotate 10s linear infinite;
 }
 
-#bg_clock #clockbody img.insidewheel{
+#bg_clock #clockbody img#insidewheel{
     position: absolute;
     width:25%;
     animation: wheelrotate 28s linear infinite reverse;
     -webkit-animation: wheelrotate 28s linear infinite reverse;
     top:37.5%;
-    left:37.5%;
-    
+    left:37.5%;   
+}
+#bg_clock #clockbody.spin,#bg_clock #clockbody img.time.spin,#bg_clock #clockbody img#insidewheel.spin{
+    -webkit-animation: clockspin 1s;
+    animation: clockspin 1s;
 }
 .time-3{top:45.0%;left:63.5%;}
 .time-2{top:35.75%;left:61.021%;}
@@ -639,6 +873,12 @@ body.dark{
 }
 
 @media screen and (max-width:400px){
+    .left{
+        font-size:20px;
+    }
+    .center{
+        font-size: 10px;
+    }
     .main{
         font-size: 12px;
     }
@@ -655,7 +895,7 @@ body.dark{
         font-size: 20px;
     }
     .profilecontent{
-        font-size: 11px;
+        font-size: 13px;
     }
     .Prof{
         font-size: 8px;

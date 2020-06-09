@@ -1,18 +1,7 @@
 var ua = window.navigator.userAgent.toLowerCase()
 var body = document.body;
 
-function css_reload(){
-    var createCSS = document.getElementById('createCSS');
-    if(window.innerWidth >= window.innerHeight){
-        console.log('YOKONAGA');
-        createCSS.setAttribute('href','./css/n2freevas_create_horizontal.css')
-        
-    }
-    else{
-        console.log('TATENAGA');
-        createCSS.setAttribute('href','./css/n2freevas_create_vertical.css')
-    }
-};
+
 
 
 
@@ -22,20 +11,16 @@ function scrollToMenu(){
     if((ua.indexOf("android") !== -1) || (ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1)) {
         console.log('Adress bar infection is avoid.');
         // documentElement.client--　で，スマホの画面上下にあるアドレスバーを無視できる．
-        this.scrollTo(this.document.documentElement.clientWidth,this.document.documentElement.clientHeight)
+        //this.scrollTo(this.document.documentElement.clientWidth,this.document.documentElement.clientHeight)
     }
     else {
         console.log('Scrolling menu box')
-        this.scrollTo(window.innerWidth,window.innerHeight)
+        //this.scrollTo(window.innerWidth,window.innerHeight)
     }
 }
 
-window.addEventListener('resize', function(){
-    css_reload();
-});
 
 window.onload = function(){
-    css_reload();
     var loader = document.getElementById("loader");
     var first_bg = document.getElementById('first_bg');
     var first_logo = document.getElementById('first_logo');
@@ -72,7 +57,6 @@ window.onload = function(){
             menu_box.classList.add('active')
             count = count + 1
         }
-        console.log(count)
     };
     
 }
