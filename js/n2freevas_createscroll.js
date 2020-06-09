@@ -102,6 +102,10 @@ function scroll_control(event){
 }
 
 function content_access(event){
+    $.getJSON('./n2freevas_create.json',function(data){
+        console.log(data[0]['title'])
+    })
+
     detail_mask.classList.add('slide');
     detail_mask2.classList.add('slide');
     create_detail.classList.remove('bottom');

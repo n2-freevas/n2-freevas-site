@@ -489,7 +489,7 @@ body.dark{
     position: absolute;
     top:0;
     right:0;
-    width:50vw;
+    width:calc(50vw + 5px);
     height:100vh;
     overflow-y: scroll;
     background: black;
