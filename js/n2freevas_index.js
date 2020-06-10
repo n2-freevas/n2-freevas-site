@@ -14,6 +14,7 @@ const contact = document.getElementById('contact');
 const contact_bg = document.getElementById('contact_bg');
 const window_mask = document.getElementById('window_mask');
 const mask = document.getElementById('mask');
+var scrolling = true;
 
 var nowContent = menu
 var nextContent = null;
@@ -52,39 +53,45 @@ $(function(){
 
 //アプリケーションボタン関連イベント
 function OnclickProfileButton(){
-    processing = true;
-    nextContent = profile;
-    ClockQuickSpin();
-    menu_box.classList.remove('active');
-    
-    window.setTimeout(function(){
-        contents_vert_down();
-    },600);
+    if (scrolling){
+        scrolling = false;
+        processing = true;
+        nextContent = profile;
+        ClockQuickSpin();
+        menu_box.classList.remove('active');
+        
+        window.setTimeout(function(){
+            contents_vert_down();
+        },600);
 
-    for( let i = 0; i < profilecontents.length; i++){
-        window.setTimeout(() => {
-            profilecontents[i].classList.add('fadein');
-        }, 1800+i*500);
+        for( let i = 0; i < profilecontents.length; i++){
+            window.setTimeout(() => {
+                profilecontents[i].classList.add('fadein');
+            }, 1800+i*500);
+        }
+        for(let i = 0; i<blackmask.length; i++)
+        window.setTimeout(()=>{
+            blackmask[i].classList.add('slideup');
+            redmask[i].classList.add('slideleft');
+        },1200);
     }
-    for(let i = 0; i<blackmask.length; i++)
-    window.setTimeout(()=>{
-        blackmask[i].classList.add('slideup');
-        redmask[i].classList.add('slideleft');
-    },1200);
     
 }
 
 function OnclickCreateButton(){
-    nextContent = create;
-    ClockSlide();
-    black_bg.classList.add('opacityMax');
-    menu_box.classList.remove('active');
-    window.setTimeout(()=>{
-        window_mask.classList.add('slidein');
-    },500)
-    window.setTimeout(()=>{
-        contents_hori_left();
-    },1000);
+    if (scrolling){
+        scrolling = false;
+        nextContent = create;
+        ClockSlide();
+        black_bg.classList.add('opacityMax');
+        menu_box.classList.remove('active');
+        window.setTimeout(()=>{
+            window_mask.classList.add('slidein');
+        },500)
+        window.setTimeout(()=>{
+            contents_hori_left();
+        },1000);
+    }
 }
 function OnclickBlogButton(){
     window.open('http://n2-freevas-blog.deca.jp/');
@@ -99,27 +106,31 @@ function OnclickContactButton(){
     contact_bg.classList.toggle('popup');
 }
 function OnclickBackMenuButton(){
-    nextContent = menu;
-    if (nowContent === profile){
-        ClockQuickSpin();
-        contents_vert_up();
-        for( let i = 0; i < profilecontents.length; i++){
-            profilecontents[i].classList.remove('fadein');
+    if (scrolling){
+        scrolling = false;
+        nextContent = menu;
+        if (nowContent === profile){
+            ClockQuickSpin();
+            contents_vert_up();
+            for( let i = 0; i < profilecontents.length; i++){
+                profilecontents[i].classList.remove('fadein');
+            }
+            for(let i = 0; i<blackmask.length; i++){
+                blackmask[i].classList.remove('slideup');
+                redmask[i].classList.remove('slideleft');
+            }
+            // border reborn
+            window.setTimeout(function(){menu_box.classList.add('active');},800);
         }
-        for(let i = 0; i<blackmask.length; i++){
-            blackmask[i].classList.remove('slideup');
-            redmask[i].classList.remove('slideleft');
+        else if (nowContent === create){
+            black_bg.classList.remove('opacityMax');
+            ClockSlide();
+            contents_hori_right();
+            window.setTimeout(()=>{window_mask.classList.remove('slidein');},900)
+            // border reborn
+            window.setTimeout(function(){menu_box.classList.add('active');},1200);
         }
-        // border reborn
-        window.setTimeout(function(){menu_box.classList.add('active');},800);
-    }
-    else if (nowContent === create){
-        black_bg.classList.remove('opacityMax');
-        ClockSlide();
-        contents_hori_right();
-        window.setTimeout(()=>{window_mask.classList.remove('slidein');},900)
-        // border reborn
-        window.setTimeout(function(){menu_box.classList.add('active');},1200);
+        
     }
     
 
@@ -159,6 +170,7 @@ function contents_hori_right(){
 
 function state_reset(){
     nowContent = nextContent;
+    scrolling = true;
 };
 
 function ClockQuickSpin(){

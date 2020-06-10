@@ -155,7 +155,7 @@ body.dark{
     background: rgba(169, 0, 0,0.5);
     z-index:1000;
 }
-#create_detail{
+.cd{
     z-index:6000;
     height:100vh;
     width:100vw;
@@ -399,7 +399,7 @@ body.dark{
     height:100%;
     background-position: center;
     background-size: cover;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 .child.fil{
@@ -466,7 +466,7 @@ body.dark{
     height:100vh;
     background: var(--white);
     text-align: center;
-    font-size:16px;
+    font-size:14px;
 }
 .center .cd_text{
     position: absolute;
@@ -476,6 +476,7 @@ body.dark{
     opacity:0;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    transition:opacity 0.3s;
 }
 .center .cd_text.show{
     opacity:1;
@@ -493,9 +494,37 @@ body.dark{
     height:100vh;
     overflow-y: scroll;
     background: black;
+    transition: width 1s;
 }
 .right.closeup{
     width:90vw;
+}
+.right .createbox.start{
+    position: relative;
+    text-align: center;
+    color:white;
+}
+.right .createbox.start img{
+    position: absolute;
+    width:30px;
+    top:40%;
+    left:calc(50% - 15px);
+    animation: cd_arrowmove 2s ease-in-out infinite;
+}
+@keyframes cd_arrowmove{
+    0%{top:40%;}
+    10%{top:calc(40% + 10px);}
+    20%{top:40%;}
+    30%{top:calc(40% + 10px);}
+    40%{top:40%;}
+    100%{top:40%;}
+}
+.right .createbox.start p{
+    position: absolute;
+    top:55%;
+    left:0;
+    width:100%;
+    font-size: 10px;
 }
 .right .createbox{
     height:75vh;
@@ -503,28 +532,67 @@ body.dark{
     align-items: center;
     display: flex;
     justify-content: center;
-    transition: filter 0.5s;
 }
 .createbox.start{
     height:75vh;
-    background: blue;
+    background: black;
 }
 .createbox.finish{
     height:100vh;
-    background: red;
+    background:black;
 }
 .createbox img{
     margin: 5vh 0 15vh 0;
     max-width: 400px;
     width:75%;
+    transition: all 0.5s;
 }
-.createbox.fil img{
+.createbox img.fil{
     filter: blur(3px) grayscale(100%);
+}
+
+#cd_frame{
+    transition:none;
+    
+}
+.flameitem{
+    z-index:6001;
+    color: white;
+    font-family: 'Libre Caslon Display', serif;
+    position: absolute;
+}
+#explain{
+    top:10px;
+    right:10px;
+    text-align: right;
+    font-size: 13px;
+}
+#sequencebar{
+    bottom:10px;
+    left:calc(50vw + 10px);
+    font-size: 14px;
+}
+#sequenceratio{
+    bottom:10px;
+    left:calc(50vw + 145px);
+    font-size: 14px;
+}
+#jumpnextcontent{
+    bottom:75px;
+    left:50vw;
+    font-size: 20px;
+    width:50vw;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+#jumpnextcontent.show{
+    opacity:1;
 }
 
 #detail_mask{
     position: absolute;
-    z-index:6001;
+    z-index:6002;
     height:100vh;
     width:100vw;
     top:100vh;
@@ -537,7 +605,7 @@ body.dark{
 #detail_mask.shrink{height:0;}
 #detail_mask2{
     position: absolute;
-    z-index:6002;
+    z-index:6003;
     height:100vh;
     width:100vw;
     top:100vh;
@@ -792,29 +860,8 @@ body.dark{
     -webkit-animation: clockspin 1s;
     animation: clockspin 1s;
 }
-.time-3{top:45.0%;left:63.5%;}
-.time-2{top:35.75%;left:61.021%;}
-.time-1{top:28.979%;left:54.25%;}
-.time-12{top:26.5%;left:45.0%;}
-.time-11{top:28.979%;left:35.75%;}
-.time-10{top:35.75%;left:28.979%;}
-.time-9{top:45.0%;left:26.5%;}
-.time-8{top:54.25%;left:28.979%;}
-.time-7{top:61.021%;left:35.75%;}
-.time-6{top:63.5%;left:45.0%;}
-.time-5{top:61.021%;left:54.25%;}
-.time-4{top:54.25%;left:61.021%;}
-
-#bg_clock img.time-2,
-#bg_clock img.time-4,
-#bg_clock img.time-6,
-#bg_clock img.time-8,
-#bg_clock img.time-10,
-#bg_clock img.time-12{
-    
-    animation-direction: reverse;
-    -webkit-animation-direction: reverse;
-}
+.time-3{top:45.0%;left:63.5%;}.time-2{top:35.75%;left:61.021%;}.time-1{top:28.979%;left:54.25%;}.time-12{top:26.5%;left:45.0%;}.time-11{top:28.979%;left:35.75%;}.time-10{top:35.75%;left:28.979%;}.time-9{top:45.0%;left:26.5%;}.time-8{top:54.25%;left:28.979%;}.time-7{top:61.021%;left:35.75%;}.time-6{top:63.5%;left:45.0%;}.time-5{top:61.021%;left:54.25%;}.time-4{top:54.25%;left:61.021%;}
+#bg_clock #clockbody img.time-2,#bg_clock #clockbody img.time-4,#bg_clock #clockbody img.time-6,#bg_clock #clockbody img.time-8,#bg_clock #clockbody img.time-10,#bg_clock #clockbody img.time-12{animation-direction: reverse;-webkit-animation-direction: reverse;}
 
 @keyframes wheelrotate{
     0%{transform: rotate(0deg);}

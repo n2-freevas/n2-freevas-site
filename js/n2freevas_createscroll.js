@@ -8,7 +8,12 @@ const childs = document.getElementsByClassName('child');
 const creates = document.getElementById('portfolioscroll');
 const detail_mask = document.getElementById('detail_mask');
 const detail_mask2 = document.getElementById('detail_mask2');
-const create_detail = document.getElementById('create_detail');
+const cd_flame = document.getElementById('cd_flame');
+const sq_prog = document.getElementById('sequencebar');
+const sq_ratio = document.getElementById('sequenceratio');
+const jnc = document.getElementById('jnc');
+const jumpnextcontent = document.getElementById('jumpnextcontent');
+var create_detail = document.getElementById('create_detail1');
 
 
 var nowSection = 1;
@@ -42,14 +47,13 @@ function setScrollstatus(){
     console.log(scroll_height);
     console.log(scroll_margin);
 }
-window.addEventListener('resize', function(){setScrollstatus()});
+window.addEventListener('resize', function(){setScrollstatus();set_cd_Scrollstartus()});
 
 
 // スクロール禁止
 function scrollEventManager() {
     
     setScrollstatus();
-
     $('#portfolioscroll').scrollTop(10);
     // スマホでのタッチ操作でのスクロール制御
     creates.addEventListener("touchmove", scroll_control, { passive: true });
@@ -69,8 +73,7 @@ function scrollEventManager() {
 function scroll_control(event){
     
     //スクロール位置に応じてnumeratorにshowをつけたりとったりする
-    var val = $('#portfolioscroll').scrollTop() / one_content_height;
-    nowSection = Math.ceil(val + 0.5);
+    nowSection = Math.ceil(($('#portfolioscroll').scrollTop() / one_content_height) + 0.5);
     if((nowSection != preSection)&&(nowSection != 0)){
         create_wheel.classList.add('spin');
         window.setTimeout(()=>{
@@ -100,28 +103,128 @@ function scroll_control(event){
         $('#portfolioscroll').scrollTop(3);
     }
 }
+// start, cd_text1 ,cd_text2, ...... cd_text(N-1)
+const cd1_control = [0,1,2,3,4,5,5,5,6];
+const cd2_control = [0,1,2,2,3];
+const cd3_control = [0,0,0,0,0,0,0,0,0,0,0];
+const cd5_control = [0,1,2,3,4,5,6];
+var cd_control = cd1_control;
+var cd_LCR = create_detail.children;
+var cd_C = cd_LCR[1].children;
+var cd_R = cd_LCR[2].children;
+var numof_image = 0;
+var nowImage = 0;
+var preImage = 0;
+var cd_scroll_margin = 0;
+var cd_box_height = 0
+var over_scroll_counter = 0
+var cd_scroll = cd_LCR[2].scrollHeight;
+var jnc_str = '';
+
+function set_cd_Scrollstartus(){
+    cd_scroll_margin = cd_LCR[2].scrollHeight - cd_LCR[2].clientHeight;
+    cd_box_height = cd_R[0].clientHeight;
+}
 
 function content_access(event){
-    $.getJSON('./n2freevas_create.json',function(data){
-        console.log(data[0]['title'])
-    })
-
-    detail_mask.classList.add('slide');
-    detail_mask2.classList.add('slide');
-    create_detail.classList.remove('bottom');
-    window.setTimeout(()=>{
-        detail_mask.classList.add('shrink');
-        detail_mask2.classList.add('shrink');
-    },500);
+    if(nowSection-1 == 3){
+        window.open('http://n2-freevas-blog.deca.jp/2020/06/01/developed-kotodaman-support-tool/');
+    }
+    else{
+        var openSection = 'create_detail'+String(((nowSection-1)%numof_content) + 1);
+        create_detail = document.getElementById(openSection);
+        if((nowSection-1)%numof_content == 0){cd_control = cd1_control}
+        else if((nowSection-1)%numof_content == 1){cd_control = cd2_control}
+        else if((nowSection-1)%numof_content == 2){cd_control = cd3_control}
+        else if((nowSection-1)%numof_content == 4){cd_control = cd5_control}
+        else{console.log('fuck error')}
+        cd_LCR = create_detail.children;cd_C = cd_LCR[1].children;cd_R = cd_LCR[2].children;
+        numof_image = cd_R.length - 1;cd_text_index = 0;
+        $(cd_LCR[2]).scrollTop(0);
+        cd_scroll_margin = cd_LCR[2].scrollHeight - (cd_LCR[2].clientHeight*1.75);
+        cd_box_height = cd_R[0].clientHeight;
+        preImage = 0;
+        cd_LCR[2].addEventListener("touchmove", cd_scrollController, { passive: true });
+        // PCでのスクロール制御
+        if(userBrowser==='firefox'){cd_LCR[2].addEventListener('DOMMouseScroll',cd_scrollController,{ passive: true });}
+        else{cd_LCR[2].addEventListener("mousewheel", cd_scrollController,{ passive: true });}
+        cd_LCR[2].addEventListener('click',cd_closeup,{passive:true})
+        //animation sequence
+        detail_mask.classList.add('slide');detail_mask2.classList.add('slide');create_detail.classList.remove('bottom');
+        window.setTimeout(()=>{cd_flame.classList.remove('bottom');detail_mask.classList.add('shrink');detail_mask2.classList.add('shrink');},500);}
 }
 
 function backtoCreates(){
-    detail_mask.classList.remove('shrink');
-    detail_mask2.classList.remove('shrink');
-    create_detail.classList.add('bottom');
-    window.setTimeout(()=>{
-        detail_mask.classList.remove('slide');
-        detail_mask2.classList.remove('slide');
-    },500);
+    detail_mask.classList.remove('shrink');detail_mask2.classList.remove('shrink');create_detail.classList.add('bottom');
+    window.setTimeout(()=>{cd_flame.classList.add('bottom');detail_mask.classList.remove('slide');detail_mask2.classList.remove('slide');},500);
+    cd_LCR[2].removeEventListener("touchmove", cd_scrollController, { passive: true });
+    // PCでのスクロール制御
+    if(userBrowser==='firefox'){cd_LCR[2].removeEventListener('DOMMouseScroll',cd_scrollController,{ passive: true });}
+    else{cd_LCR[2].removeEventListener("mousewheel", cd_scrollController,{ passive: true });}
+    cd_LCR[2].removeEventListener('click',cd_closeup,{passive:true});
+    reset_cd_flame();
+}
+
+function cd_scrollController(){
+    ns = $(cd_LCR[2]).scrollTop()
+    nowImage = Math.floor((ns / cd_box_height) + 0.65);
+    
+    if((nowImage != preImage)&&(numof_image > nowImage)){
+        cd_R[nowImage].children[0].classList.remove('fil');
+        cd_R[preImage].children[0].classList.add('fil');
+        
+        if(cd_control[nowImage] != cd_control[preImage]){
+            cd_C[cd_control[nowImage]].classList.add('show');
+            cd_C[cd_control[preImage]].classList.remove('show');
+        }
+        preImage = nowImage;
+    }
+    let sq_str = '';
+    sq_val = Math.floor((ns * 20) / cd_scroll_margin);
+    if (sq_val > 20){sq_val = 20;};
+    sq_str = 'Progress:';
+    for (let i = 0; i<sq_val;i++){
+        sq_str += '|';
+    }
+    
+    sq_prog.innerText = sq_str;
+    sq_str = '';
+    sq_val = Math.floor((ns * 100) / cd_scroll_margin);
+    if (sq_val > 100){sq_val = 100;};
+    sq_str += ':'+ String(sq_val);
+    sq_str += '%';
+    sq_ratio.innerText = sq_str;
+    
+    if($(cd_LCR[2]).scrollTop() >= cd_scroll_margin){
+        jumpnextcontent.classList.add('show');
+        over_scroll_counter += 1;
+        sq_val = Math.floor((1/10)*over_scroll_counter);
+        jnc_str='';
+        for (let i = 0; i<sq_val;i++){
+            jnc_str += '*';
+        }
+        jnc.innerText = jnc_str;
+        
+        if(over_scroll_counter > 100){
+            nowSection = (nowSection%numof_content)+1
+            reset_cd_flame();
+            detail_mask.classList.remove('shrink');detail_mask2.classList.remove('shrink');create_detail.classList.add('bottom');
+            window.setTimeout(()=>{if(nowSection == 4){nowSection = 5;alert('Content 4/5 will be skip. If you want to look it, BACK to create-menu.');}content_access()},700);
+        }
+    }
+    else{
+        over_scroll_counter = 0;
+        jumpnextcontent.classList.remove('show');
+    }
+}
+function cd_closeup(){
+    cd_LCR[2].classList.toggle('closeup');
+    
+}
+function reset_cd_flame(){
+    over_scroll_counter = 0;
+            sq_ratio.innerText = 'Progress:';
+            sq_ratio.innerText = ':0%';
+            jumpnextcontent.classList.remove('show');
 }
 scrollEventManager();
