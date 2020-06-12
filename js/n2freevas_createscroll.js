@@ -14,7 +14,7 @@ const sq_ratio = document.getElementById('sequenceratio');
 const jnc = document.getElementById('jnc');
 const jumpnextcontent = document.getElementById('jumpnextcontent');
 var create_detail = document.getElementById('create_detail1');
-const create = document.getElementById('create')
+//const create = document.getElementById('create')
 
 var nowSection = 1;
 var preSection = 1;

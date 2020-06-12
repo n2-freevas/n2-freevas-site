@@ -392,7 +392,7 @@ body.dark{
 #portfolioscroll{
     position: absolute;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    
 }
 #portfolioscroll section{
     height:100%;
@@ -497,7 +497,6 @@ body.dark{
     width:calc(50vw + 5px);
     height:100vh;
     overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
     background: black;
     transition: width 1s;
 }
