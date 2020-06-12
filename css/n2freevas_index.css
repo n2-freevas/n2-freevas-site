@@ -6,6 +6,9 @@
     --accent-color: #FBC02D;
     --dark-main-color: #000000;
 }
+html {
+    -webkit-overflow-scrolling: touch;
+}
 
 body{
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "sans-serif";
@@ -30,7 +33,7 @@ body.dark{
     height:100vh;
     width: 100vw;
     text-align: center;
-    color:black;
+    color:var(--main-color);
     padding-top: 40vh;
     transition: all 1s;}
 #loader.fadeout{

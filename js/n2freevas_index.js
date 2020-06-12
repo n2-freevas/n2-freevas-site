@@ -124,7 +124,6 @@ function OnclickBackMenuButton(){
         }
         else if (nowContent === create){
             black_bg.classList.remove('opacityMax');
-            ClockSlide();
             contents_hori_right();
             window.setTimeout(()=>{window_mask.classList.remove('slidein');},900)
             // border reborn
