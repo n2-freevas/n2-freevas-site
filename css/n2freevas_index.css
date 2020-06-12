@@ -6,9 +6,6 @@
     --accent-color: #FBC02D;
     --dark-main-color: #000000;
 }
-html {
-    -webkit-overflow-scrolling: touch;
-}
 
 body{
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "sans-serif";
@@ -144,6 +141,9 @@ body.dark{
 
 #create{
     z-index:5000;
+}
+#create.hidden{
+    visibility: hidden;
 }
 #contact{
     position: fixed;
@@ -392,6 +392,7 @@ body.dark{
 #portfolioscroll{
     position: absolute;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 #portfolioscroll section{
     height:100%;
@@ -496,9 +497,12 @@ body.dark{
     width:calc(50vw + 5px);
     height:100vh;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     background: black;
     transition: width 1s;
 }
+.right::-webkit-scrollbar{display: none;}
+.right::scrollbar{display:none;}
 .right.closeup{
     width:90vw;
 }

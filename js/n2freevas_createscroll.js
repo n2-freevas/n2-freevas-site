@@ -14,7 +14,7 @@ const sq_ratio = document.getElementById('sequenceratio');
 const jnc = document.getElementById('jnc');
 const jumpnextcontent = document.getElementById('jumpnextcontent');
 var create_detail = document.getElementById('create_detail1');
-
+const create = document.getElementById('create')
 
 var nowSection = 1;
 var preSection = 1;
@@ -152,11 +152,11 @@ function content_access(event){
         cd_LCR[2].addEventListener('click',cd_closeup,{passive:true})
         //animation sequence
         detail_mask.classList.add('slide');detail_mask2.classList.add('slide');create_detail.classList.remove('bottom');
-        window.setTimeout(()=>{cd_flame.classList.remove('bottom');detail_mask.classList.add('shrink');detail_mask2.classList.add('shrink');},500);}
+        window.setTimeout(()=>{cd_flame.classList.remove('bottom');detail_mask.classList.add('shrink');detail_mask2.classList.add('shrink');create.classList.add('hidden')},500);}
 }
 
 function backtoCreates(){
-    detail_mask.classList.remove('shrink');detail_mask2.classList.remove('shrink');create_detail.classList.add('bottom');
+    create.classList.remove('hidden');detail_mask.classList.remove('shrink');detail_mask2.classList.remove('shrink');create_detail.classList.add('bottom');
     window.setTimeout(()=>{cd_flame.classList.add('bottom');detail_mask.classList.remove('slide');detail_mask2.classList.remove('slide');},500);
     cd_LCR[2].removeEventListener("touchmove", cd_scrollController, { passive: true });
     // PCでのスクロール制御
