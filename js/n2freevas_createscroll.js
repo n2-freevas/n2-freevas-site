@@ -120,6 +120,7 @@ var cd_box_height = 0
 var over_scroll_counter = 0
 var cd_scroll = cd_LCR[2].scrollHeight;
 var jnc_str = '';
+var timeoutId ;
 
 function set_cd_Scrollstartus(){
     cd_scroll_margin = cd_LCR[2].scrollHeight - cd_LCR[2].clientHeight;
@@ -166,56 +167,63 @@ function backtoCreates(){
 }
 
 function cd_scrollController(){
-    ns = $(cd_LCR[2]).scrollTop()
-    nowImage = Math.floor((ns / cd_box_height) + 0.65);
-    
-    if((nowImage != preImage)&&(numof_image > nowImage)){
-        cd_R[nowImage].children[0].classList.remove('fil');
-        cd_R[preImage].children[0].classList.add('fil');
+    if ( timeoutId ) return ;
+
+    timeoutId = setTimeout( function () {
+        timeoutId = 0 ;
+
+        ns = $(cd_LCR[2]).scrollTop()
+        nowImage = Math.floor((ns / cd_box_height) + 0.65);
         
-        if(cd_control[nowImage] != cd_control[preImage]){
-            cd_C[cd_control[nowImage]].classList.add('show');
-            cd_C[cd_control[preImage]].classList.remove('show');
+        if((nowImage != preImage)&&(numof_image > nowImage)){
+            cd_R[nowImage].children[0].classList.remove('fil');
+            cd_R[preImage].children[0].classList.add('fil');
+            
+            if(cd_control[nowImage] != cd_control[preImage]){
+                cd_C[cd_control[nowImage]].classList.add('show');
+                cd_C[cd_control[preImage]].classList.remove('show');
+            }
+            preImage = nowImage;
         }
-        preImage = nowImage;
-    }
-    let sq_str = '';
-    sq_val = Math.floor((ns * 20) / cd_scroll_margin);
-    if (sq_val > 20){sq_val = 20;};
-    sq_str = 'Progress:';
-    for (let i = 0; i<sq_val;i++){
-        sq_str += '|';
-    }
-    
-    sq_prog.innerText = sq_str;
-    sq_str = '';
-    sq_val = Math.floor((ns * 100) / cd_scroll_margin);
-    if (sq_val > 100){sq_val = 100;};
-    sq_str += ':'+ String(sq_val);
-    sq_str += '%';
-    sq_ratio.innerText = sq_str;
-    
-    if($(cd_LCR[2]).scrollTop() >= cd_scroll_margin){
-        jumpnextcontent.classList.add('show');
-        over_scroll_counter += 1;
-        sq_val = Math.floor((1/10)*over_scroll_counter);
-        jnc_str='';
+        let sq_str = '';
+        sq_val = Math.floor((ns * 20) / cd_scroll_margin);
+        if (sq_val > 20){sq_val = 20;};
+        sq_str = 'Progress:';
         for (let i = 0; i<sq_val;i++){
-            jnc_str += '*';
+            sq_str += '|';
         }
-        jnc.innerText = jnc_str;
         
-        if(over_scroll_counter > 100){
-            nowSection = (nowSection%numof_content)+1
-            reset_cd_flame();
-            detail_mask.classList.remove('shrink');detail_mask2.classList.remove('shrink');create_detail.classList.add('bottom');
-            window.setTimeout(()=>{if(nowSection == 4){nowSection = 5;alert('Content 4/5 will be skip. If you want to look it, BACK to create-menu.');}content_access()},700);
+        sq_prog.innerText = sq_str;
+        sq_str = '';
+        sq_val = Math.floor((ns * 100) / cd_scroll_margin);
+        if (sq_val > 100){sq_val = 100;};
+        sq_str += ':'+ String(sq_val);
+        sq_str += '%';
+        sq_ratio.innerText = sq_str;
+        
+        if($(cd_LCR[2]).scrollTop() >= cd_scroll_margin){
+            jumpnextcontent.classList.add('show');
+            over_scroll_counter += 1;
+            sq_val = Math.floor((1/5)*over_scroll_counter);
+            jnc_str='';
+            for (let i = 0; i<sq_val;i++){
+                jnc_str += '*';
+            }
+            jnc.innerText = jnc_str;
+            
+            if(over_scroll_counter >35){
+                nowSection = (nowSection%numof_content)+1
+                reset_cd_flame();
+                detail_mask.classList.remove('shrink');detail_mask2.classList.remove('shrink');create_detail.classList.add('bottom');
+                window.setTimeout(()=>{if(nowSection == 4){nowSection = 5;alert('Content 4/5 will be skip. If you want to look it, BACK to create-menu.');}content_access()},700);
+            }
         }
-    }
-    else{
-        over_scroll_counter = 0;
-        jumpnextcontent.classList.remove('show');
-    }
+        else{
+            over_scroll_counter = 0;
+            jumpnextcontent.classList.remove('show');
+        }
+    }, 50 ) ;
+    
 }
 function cd_closeup(){
     cd_LCR[2].classList.toggle('closeup');
