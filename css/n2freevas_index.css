@@ -392,7 +392,8 @@ body.dark{
 #portfolioscroll{
     position: absolute;
     overflow-y: scroll;
-    
+    overscroll-behavior: contain;
+    -ms-scroll-chaining: none;
 }
 #portfolioscroll section{
     height:100%;
@@ -497,6 +498,8 @@ body.dark{
     width:calc(50vw + 5px);
     height:100vh;
     overflow-y: scroll;
+    overscroll-behavior: contain;
+    -ms-scroll-chaining: none;
     background: black;
     transition: width 1s;
 }
