@@ -211,7 +211,7 @@ function cd_scrollController(){
             }
             jnc.innerText = jnc_str;
             
-            if(over_scroll_counter >35){
+            if(over_scroll_counter >25){
                 nowSection = (nowSection%numof_content)+1
                 reset_cd_flame();
                 detail_mask.classList.remove('shrink');detail_mask2.classList.remove('shrink');create_detail.classList.add('bottom');

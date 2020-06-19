@@ -138,9 +138,13 @@ body.dark{
 .content.right{
     top:0%;
     left:100%;}
-
+#menu.transparent{
+    opacity:0;
+}
 #create{
     z-index:5000;
+    -webkit-transition: none;
+    transition: none;
 }
 #create.hidden{
     visibility: hidden;
@@ -176,20 +180,6 @@ body.dark{
     position: absolute;}
 #profile{
     color:white;
-}
-#black-background{
-    position: absolute;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    background: white;
-    z-index:-50;
-    opacity:0;
-    transition: all 0.5s 0.2s;
-}
-#black-background.opacityMax{
-    opacity:1;
 }
 #red-background{
     position: absolute;
@@ -392,7 +382,7 @@ body.dark{
 #portfolioscroll{
     position: absolute;
     overflow-y: scroll;
-    overscroll-behavior: contain;
+    overscroll-behavior: none;
     -ms-scroll-chaining: none;
 }
 #portfolioscroll section{
@@ -498,7 +488,7 @@ body.dark{
     width:calc(50vw + 5px);
     height:100vh;
     overflow-y: scroll;
-    overscroll-behavior: contain;
+    overscroll-behavior: none;
     -ms-scroll-chaining: none;
     background: black;
     transition: width 1s;
@@ -696,18 +686,37 @@ body.dark{
 }
 #window_mask{
     position: absolute;
-    z-index:4000;
-    top:0;right:0;
-    width:0;
+    z-index:8001;
+    top:0;left:100vw;
+    width:100vw;
+    height:100vh;
+    background: var(--dark-main-color);
+    opacity: 1;
+    transition: 0.4s;
+}
+#window_mask2{
+    position: absolute;
+    z-index:8000;
+    top:0;left:100vw;
+    width:100vw;
     height:100vh;
     background: var(--white);
-    opacity: 0.8;
-    transition: 0.5s;
+    opacity: 1;
+    transition: 0.4s;
 }
-#window_mask.slidein{
+#window_mask_transparent{
+    position: absolute;
+    z-index:8002;
+    top:0;left:100vw;
     width:100vw;
+    height:100vh;
+    opacity: 0;
 }
-
+#window_mask.slidein{left:0;}
+#window_mask.shrink{width:0;}
+#window_mask2.slidein{left:0;}
+#window_mask2.shrink{width:0;}
+#window_mask_transparent.slidein{left:0;}
 /* ==================  Clock  ==================  */
 #bg_clock{
     position: absolute;
@@ -723,10 +732,14 @@ body.dark{
     width:120vw;
     height:120vw;
     -webkit-animation: clockrotate 60s cubic-bezier(1,0,.95,.38) infinite;
-    animation: clockrotate 60s cubic-bezier(1,0,.95,.38) infinite;}
-
+    animation: clockrotate 60s cubic-bezier(1,0,.95,.38) infinite;
+    transition: 1s;}
+#bg_clock #clockbody.showmove{
+    top:-50px;
+    left:-10vw;
+}
 #bg_clock #clockbody.slideleft{
-    -webkit-animation: clockslide ease-out 4s;
+    -webkit-animation: clockslide ease-out 4s ;
     animation: clockslide ease-out 4s;
 }
 

@@ -1,5 +1,4 @@
 const menu_box = document.getElementById('menu_box');
-const black_bg = document.getElementById('black-background');
 const bg_clock = document.getElementById('bg_clock');
 const times = document.getElementsByClassName('time');
 const insidewheel = document.getElementById('insidewheel')
@@ -13,6 +12,8 @@ const create = document.getElementById('create');
 const contact = document.getElementById('contact');
 const contact_bg = document.getElementById('contact_bg');
 const window_mask = document.getElementById('window_mask');
+const window_mask2 = document.getElementById('window_mask2');
+const window_mask_tp = document.getElementById('window_mask_transparent');
 const mask = document.getElementById('mask');
 var scrolling = true;
 
@@ -83,24 +84,30 @@ function OnclickCreateButton(){
         scrolling = false;
         nextContent = create;
         ClockSlide();
-        black_bg.classList.add('opacityMax');
         menu_box.classList.remove('active');
-        window.setTimeout(()=>{
-            window_mask.classList.add('slidein');
-        },500)
-        window.setTimeout(()=>{
-            contents_hori_left();
-        },1000);
+        window.setTimeout(()=>{window_mask2.classList.add('slidein');},400)
+        window.setTimeout(()=>{window_mask.classList.add('slidein');},600)
+        window.setTimeout(()=>{window_mask.classList.add('shrink');},1500)
+        window.setTimeout(()=>{window_mask2.classList.add('shrink');},1600)
+        window.setTimeout(()=>{contents_hori_left();},500);
     }
 }
 function OnclickBlogButton(){
     window.open('http://n2-freevas-blog.deca.jp/');
 }
-/*
-function OnclickArtifacteButton(){
-    nextContent = artifact;
-}*/
 
+function OnclickCArtifactButton(){
+    menu_box.classList.remove('active');
+    window.setTimeout(()=>{menu.classList.add('transparent');},500);
+    window.setTimeout(()=>{clockbody.classList.add('showmove');},700);
+    window.setTimeout(()=>{window_mask_tp.classList.add('slidein');},1300);
+}
+function OnclickArtifactTransparent(){
+    window_mask_tp.classList.remove('slidein');
+    clockbody.classList.remove('showmove');
+    window.setTimeout(()=>{menu.classList.remove('transparent');},500);
+    window.setTimeout(()=>{menu_box.classList.add('active');},1000);
+}
 function OnclickContactButton(){
     contact.classList.toggle('contact_up');
     contact_bg.classList.toggle('popup');
@@ -123,18 +130,17 @@ function OnclickBackMenuButton(){
             window.setTimeout(function(){menu_box.classList.add('active');},800);
         }
         else if (nowContent === create){
-            black_bg.classList.remove('opacityMax');
             ClockSlide();
-            contents_hori_right();
-            window.setTimeout(()=>{window_mask.classList.remove('slidein');},900)
+            window_mask2.classList.remove('shrink');
+            window.setTimeout(()=>{window_mask.classList.remove('shrink');},200);
+            window.setTimeout(()=>{contents_hori_right();},400);
+            window.setTimeout(()=>{window_mask.classList.remove('slidein');},700);
+            window.setTimeout(()=>{window_mask2.classList.remove('slidein');},900);
             // border reborn
-            window.setTimeout(function(){menu_box.classList.add('active');},1200);
+            window.setTimeout(function(){menu_box.classList.add('active');},1500);
         }
         
     }
-    
-
-    
 }
 
 
